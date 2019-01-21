@@ -1,0 +1,68 @@
+<div class="register-box">
+
+  <div class="register-logo">
+    <span class="logo-lg">
+      <!--<img src="../../../favicon.ico" style="width: 70%;">-->
+    </span>
+    <b>{{title}}</b>
+  </div>
+  <div class="box">
+    <div class="overlay" *ngIf="loader === true">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+    <div class="box-body">
+      <p class="login-box-msg">Login as student</p>
+
+      <form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" role="form">
+        <div class="row">
+          <alert [type]="alert?.type" *ngIf="alert?.type !== undefined && alert?.type !== null">
+            <strong>{{alert.type.toUpperCase()}}!</strong> {{alert.message}}
+          </alert>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" id="userName" placeholder="username" class="form-control"
+                 #userName="ngModel" ngModel name="userName" required />
+          <span class="error-span" *ngIf="userName.touched && userName.errors?.required">Username is required</span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" id="password" placeholder="*********" minlength="8" class="form-control" #password="ngModel" ngModel name="password" required />
+          <span class="error-span" *ngIf="password.touched && password.errors?.required">Password is required</span>
+          <span class="error-span" *ngIf="password.touched && password.errors?.minlength">Password should be of minimum 8 charecters!</span>
+        </div>
+        <div class="row">
+          <div class="col-xs-8">
+            <!--<div class="checkbox icheck">-->
+            <!--<label>-->
+            <!--<input type="checkbox"> I agree to the <a href="#">terms</a>-->
+            <!--</label>-->
+            <!--</div>-->
+            <a routerLink="/registration" class="text-center">Create an account</a>
+            <br/>
+
+          </div>
+          <!-- /.col -->
+          <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+          </div>
+          <!--<div class="col-xs-8">-->
+          <!--<a routerLink="/forget-password" class="text-center">Forget Password</a>-->
+          <!--<br/>-->
+          <!--<a routerLink="/forget-username" class="text-center">Forgotten username</a>-->
+          <!--</div>-->
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <!--<div class="social-auth-links text-center">-->
+      <!--<p>- OR -</p>-->
+      <!--<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using-->
+      <!--Facebook</a>-->
+      <!--<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using-->
+      <!--Google+</a>-->
+      <!--</div>-->
+
+    </div>
+
+  </div>
+  <!-- /.form-box -->
+</div>
