@@ -8,6 +8,10 @@ import {FormsModule} from '@angular/forms';
 import {AlertModule} from 'ngx-bootstrap';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {AuthService} from './auth/auth.service';
+import {HttpClientModule} from '@angular/common/http';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,12 +21,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PageNotFoundComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule, HttpClientModule, ToastrModule.forRoot(),
     AlertModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

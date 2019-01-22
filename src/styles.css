@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.error-span {
+    color: #fb3a5f;
+}
+
+.success-span {
+    color: #00a65a;
+}

@@ -4,7 +4,9 @@
 
 export const environment = {
   title: 'Student Portal',
-  production: false
+  production: false,
+  apiUrl: 'http://54.174.19.182:8081'
+
 };
 
 /*
