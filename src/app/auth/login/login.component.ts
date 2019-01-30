@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {AlertModel} from '../../shared/alert.model';
 import {AuthService, GoogleLoginProvider} from 'angular-6-social-login';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -45,4 +46,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  onSubmit(form: NgForm) {
+    
+  }
 }
