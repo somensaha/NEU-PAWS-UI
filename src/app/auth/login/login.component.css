@@ -1,0 +1,14 @@
+.fa-google-plus-square {
+    font-size: 4em;
+    width: 2em;
+    /* height: 1.5em; */
+    text-align: center;
+    color: #dd4b39;
+}
+
+.social-button {
+    border-width: 0px;
+    background-color: white;
+    outline:none;
+
+}

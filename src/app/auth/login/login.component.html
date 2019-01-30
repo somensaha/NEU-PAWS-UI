@@ -20,14 +20,22 @@
           </alert>
         </div>
         <div class="form-group has-feedback">
-          <input type="text" id="userName" placeholder="Username" class="form-control"
-                 #userName="ngModel" ngModel name="userName" required />
-          <span class="error-span" *ngIf="userName.touched && userName.errors?.required">Username is required</span>
+          <input type="text" id="nuID" placeholder="Northeastern ID*" class="form-control"
+                 #nuID="ngModel" ngModel name="nuID" required />
+          <span class="error-span" *ngIf="nuID.touched && nuID?.errors?.required">Northeastern ID is required</span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" id="password" placeholder="Password" minlength="8" class="form-control" #password="ngModel" ngModel name="password" required />
-          <span class="error-span" *ngIf="password.touched && password.errors?.required">Password is required</span>
-          <span class="error-span" *ngIf="password.touched && password.errors?.minlength">Password should be of minimum 8 charecters!</span>
+          <input type="email" id="email" name="email" class="form-control" ngModel #email="ngModel"
+                 pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$"
+                 required placeholder="mail@domain.com*" />
+          <span class="error-span" *ngIf="email.touched && email?.errors?.required">Email ID is required</span>
+          <span class="error-span" *ngIf="email.touched && email?.errors?.pattern">Invalid Email ID</span>
+          <span class="error-span" *ngIf="email.touched && email?.errors?.incorrect">Email ID is already existed. Please try another.</span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" id="fullName" placeholder="Full Name*" class="form-control"
+                 #fullName="ngModel" ngModel name="fullName" required />
+          <span class="error-span" *ngIf="fullName.touched && fullName?.errors?.required">Full Name is required</span>
         </div>
         <div class="row">
           <div class="col-xs-8">
@@ -36,14 +44,12 @@
             <!--<input type="checkbox"> I agree to the <a href="#">terms</a>-->
             <!--</label>-->
             <!--</div>-->
-            <a routerLink="/registration" class="text-center">Create an account</a>
-            <br/>
-
+            <button type="button" (click)="socialSignIn('google')" class="fa fa-google-plus-square social-button"></button>
           </div>
           <!-- /.col -->
-          <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
-          </div>
+          <!--<div class="col-xs-4">-->
+            <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>-->
+          <!--</div>-->
           <!--<div class="col-xs-8">-->
           <!--<a routerLink="/forget-password" class="text-center">Forget Password</a>-->
           <!--<br/>-->

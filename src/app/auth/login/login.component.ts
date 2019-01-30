@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {AlertModel} from '../../shared/alert.model';
+import {AuthService, GoogleLoginProvider} from 'angular-6-social-login';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ export class LoginComponent implements OnInit {
   alert: AlertModel;
   title: string;
 
-  constructor() {
+  constructor(
+      private socialAuthService: AuthService
+  ) {
     this.loader = true;
   }
 
@@ -20,6 +23,26 @@ export class LoginComponent implements OnInit {
     this.title = environment.title;
     this.loader = false;
 
+  }
+
+  public socialSignIn(socialPlatform: string) {
+    let socialPlatformProvider;
+    if (socialPlatform === 'facebook') {
+      // socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    } else if (socialPlatform === 'google') {
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    } else if (socialPlatform === 'linkedin') {
+      // socialPlatformProvider = LinkedinLoginProvider.PROVIDER_ID;
+    }
+
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+        (userData) => {
+          console.log(socialPlatform + ' sign in data : ' , userData);
+          // Now sign-in with userData
+          // ...
+
+        }
+    );
   }
 
 }
