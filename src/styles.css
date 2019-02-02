@@ -6,3 +6,7 @@
 .success-span {
     color: #00a65a;
 }
+
+.login-page, .register-page {
+    background: white;
+}
