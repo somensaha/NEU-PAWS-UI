@@ -2,9 +2,9 @@
 
   <div class="register-logo">
     <span class="logo-lg">
-      <!--<img src="../../../favicon.ico" style="width: 70%;">-->
+      <span class="logo-lg"><img src="../../assets/img/logo.png" style="width: 62%;"></span>
     </span>
-    <b>{{title}}</b>
+    <p><b>{{title}}</b></p>
   </div>
   <div class="box">
     <div class="overlay" *ngIf="loader === true">
@@ -19,33 +19,35 @@
             <strong>{{alert.type.toUpperCase()}}!</strong> {{alert.message}}
           </alert>
         </div>
-        <div class="form-group has-feedback">
-          <input type="text" id="nuID" placeholder="Northeastern ID*" class="form-control"
-                 #nuID="ngModel" ngModel name="nuID" required />
-          <span class="error-span" *ngIf="nuID.touched && nuID?.errors?.required">Northeastern ID is required</span>
-        </div>
-        <div class="form-group has-feedback">
-          <input type="email" id="email" name="email" class="form-control" ngModel #email="ngModel"
-                 pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$"
-                 required placeholder="mail@domain.com*" />
-          <span class="error-span" *ngIf="email.touched && email?.errors?.required">Email ID is required</span>
-          <span class="error-span" *ngIf="email.touched && email?.errors?.pattern">Invalid Email ID</span>
-          <span class="error-span" *ngIf="email.touched && email?.errors?.incorrect">Email ID is already existed. Please try another.</span>
-        </div>
-        <div class="form-group has-feedback">
-          <input type="text" id="fullName" placeholder="Full Name*" class="form-control"
-                 #fullName="ngModel" ngModel name="fullName" required />
-          <span class="error-span" *ngIf="fullName.touched && fullName?.errors?.required">Full Name is required</span>
-        </div>
-        <div class="row">
-          <div class="col-xs-8">
+        <!--<div class="form-group has-feedback">-->
+          <!--<input type="text" id="nuID" placeholder="Northeastern ID*" class="form-control"-->
+                 <!--#nuID="ngModel" ngModel name="nuID" required />-->
+          <!--<span class="error-span" *ngIf="nuID.touched && nuID?.errors?.required">Northeastern ID is required</span>-->
+        <!--</div>-->
+        <!--<div class="form-group has-feedback">-->
+          <!--<input type="email" id="email" name="email" class="form-control" ngModel #email="ngModel"-->
+                 <!--pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$"-->
+                 <!--required placeholder="mail@domain.com*" />-->
+          <!--<span class="error-span" *ngIf="email.touched && email?.errors?.required">Email ID is required</span>-->
+          <!--<span class="error-span" *ngIf="email.touched && email?.errors?.pattern">Invalid Email ID</span>-->
+          <!--<span class="error-span" *ngIf="email.touched && email?.errors?.incorrect">Email ID is already existed. Please try another.</span>-->
+        <!--</div>-->
+        <!--<div class="form-group has-feedback">-->
+          <!--<input type="text" id="fullName" placeholder="Full Name*" class="form-control"-->
+                 <!--#fullName="ngModel" ngModel name="fullName" required />-->
+          <!--<span class="error-span" *ngIf="fullName.touched && fullName?.errors?.required">Full Name is required</span>-->
+        <!--</div>-->
+        <div class="row" style="text-align: center">
+          <!--<div class="col-xs-12" style="text-align: center;">-->
             <!--<div class="checkbox icheck">-->
             <!--<label>-->
             <!--<input type="checkbox"> I agree to the <a href="#">terms</a>-->
             <!--</label>-->
             <!--</div>-->
-            <button type="button" (click)="socialSignIn('google')" class="fa fa-google-plus-square social-button"></button>
-          </div>
+          <!--<button type="button" class="btn btn-danger social-button" (click)="socialSignIn('google')">Sign in with <i class="fa fa-google-plus" aria-hidden="true"></i></button>-->
+          <button type="button" class="btn btn-primary social-button" (click)="ssoLogin()">Sign in with SSO</button>
+            <!--<button type="button" (click)="socialSignIn('google')">Sign in with Google <i class="fa fa-google-plus" aria-hidden="true"></i></button>-->
+          <!--</div>-->
           <!-- /.col -->
           <!--<div class="col-xs-4">-->
             <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>-->

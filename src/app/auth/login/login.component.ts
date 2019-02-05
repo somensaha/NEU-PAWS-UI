@@ -3,6 +3,7 @@ import {environment} from '../../../environments/environment';
 import {AlertModel} from '../../shared/alert.model';
 import {AuthService, GoogleLoginProvider} from 'angular-6-social-login';
 import {NgForm} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   title: string;
 
   constructor(
-      private socialAuthService: AuthService
+      private socialAuthService: AuthService,
+      private router: Router
   ) {
     this.loader = true;
   }
@@ -44,6 +46,14 @@ export class LoginComponent implements OnInit {
 
         }
     );
+  }
+
+  ssoLogin() {
+    const token = 'shib' + Math.random().toString(36).substr(2);
+    const targetURL = environment.rootURL + 'signin_callback?token=' + token;
+    const redirectUrl = environment.rootURL + 'Shibboleth.sso/Login?target=' + targetURL;
+    console.log('redirect url', redirectUrl);
+    window.location.href = redirectUrl;
   }
 
   onSubmit(form: NgForm) {

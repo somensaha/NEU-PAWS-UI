@@ -1,0 +1,26 @@
+<div class="register-box">
+
+  <div class="register-logo">
+    <span class="logo-lg">
+      <span class="logo-lg"><img src="../../assets/img/logo.png" style="width: 20%;"></span>
+    </span>
+    <p><b>{{title}}</b></p>
+  </div>
+  <div class="box">
+    <div class="overlay" style="text-align: center" *ngIf="loader === true">
+      <p style="font-size: 24px;">Please wait... Signing you in...</p>
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+    <div class="box-body">
+      <p class="login-box-msg"></p>
+        <div class="row">
+          <alert [type]="alert?.type" *ngIf="alert?.type !== undefined && alert?.type !== null">
+            <strong>{{alert.type.toUpperCase()}}!</strong> {{alert.message}}
+          </alert>
+          <br><br><br>
+        </div>
+    </div>
+
+  </div>
+  <!-- /.form-box -->
+</div>

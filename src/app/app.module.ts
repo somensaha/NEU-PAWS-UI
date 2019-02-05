@@ -19,6 +19,7 @@ import {
   // LinkedinLoginProvider,
   SocialLoginModule
 } from 'angular-6-social-login';
+import { CallbackComponent } from './auth/callback/callback.component';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -45,7 +46,8 @@ export function getAuthServiceConfigs() {
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
