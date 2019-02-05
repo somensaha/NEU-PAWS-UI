@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
+import {AlertModel} from '../../shared/alert.model';
 
 @Component({
   selector: 'app-callback',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
 export class CallbackComponent implements OnInit {
   loader: boolean;
   title: string;
-
+  alert: AlertModel;
 
   constructor(
       private router: Router
