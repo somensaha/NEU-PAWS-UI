@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import {environment} from '../../environments/environment';
 export class AuthService {
 
   constructor(
-      private http: HttpClient
+      private http: HttpClient,
+      private router: Router
   ) { }
 
   /**
@@ -19,5 +21,20 @@ export class AuthService {
   studentSignUp(form: any): Observable<any> {
     const url = environment.apiUrl + '/students/saveUser';
     return this.http.post(url, form);
+  }
+
+  signInAfterSSO(formData: any): Observable<any> {
+    const url = environment.apiUrl + '/students/saveUser?ssoCall=Yes';
+    return this.http.post(url, formData);
+  }
+
+  logout() {
+    localStorage.removeItem('userInfo');
+    this.router.navigate(['/']);
+  }
+
+  userInfo() {
+    const user = atob(JSON.parse(localStorage.getItem('userInfo')));
+    return user;
   }
 }

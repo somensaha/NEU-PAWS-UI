@@ -5,7 +5,7 @@
 export const environment = {
   title: 'Student Portal',
   production: false,
-  apiUrl: 'http://54.174.19.182:8081',
+  apiUrl: 'http://192.168.0.153:8081',
   rootURL: 'https://www.huskyhelperstudents.com/'
 };
 
