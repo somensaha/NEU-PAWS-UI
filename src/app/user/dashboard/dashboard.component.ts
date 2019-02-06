@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../shared/user.service';
 import {ToastrService} from 'ngx-toastr';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {AlertModel} from '../../shared/alert.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   form: FormGroup;
   allAgreement: boolean;
   modalRef: BsModalRef;
-
+  alert: AlertModel;
 
   constructor(
       private fb: FormBuilder,
