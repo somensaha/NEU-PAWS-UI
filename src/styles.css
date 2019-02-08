@@ -10,3 +10,19 @@
 .login-page, .register-page {
     background: white;
 }
+
+.skin-blue .main-header .navbar {
+    background-color: #0a0a0a;
+}
+
+.skin-blue .main-header .logo {
+    background-color: #0a0a0a;
+}
+
+.box.box-info, .box.box-primary {
+    border-top-color: #0a0a0a;
+}
+
+/*.tooltip {*/
+    /*opacity: 100;*/
+/*}*/
