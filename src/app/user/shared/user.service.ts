@@ -16,4 +16,9 @@ export class UserService {
     const url = environment.apiUrl + '/students/saveUser';
     return this.http.post(url, form);
   }
+
+  getCategoriesByMailId(form: any): Observable<any> {
+    const url = environment.apiUrl + '/students/getStudentDetails';
+    return this.http.post(url, form);
+  }
 }

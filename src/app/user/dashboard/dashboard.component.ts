@@ -4,6 +4,7 @@ import {UserService} from '../shared/user.service';
 import {ToastrService} from 'ngx-toastr';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {AlertModel} from '../../shared/alert.model';
+import { UserInfoModel } from 'src/app/shared/userInfo.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,8 @@ export class DashboardComponent implements OnInit {
   allAgreement: boolean;
   modalRef: BsModalRef;
   alert: AlertModel;
+  optcatdetails: any;
+  userDetails: UserInfoModel;
 
   constructor(
       private fb: FormBuilder,
@@ -28,6 +31,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.allAgreement = false;
     this.createForm();
+    this.userDetails = {emailId: 'michelsen.a@husky.neu.edu', givenName: 'Anna', surname: 'Michelsen', nuId: '001692903'};
   }
 
   /**
@@ -36,13 +40,13 @@ export class DashboardComponent implements OnInit {
   createForm() {
     this.form = this.fb.group({
       studentdetails: new FormGroup({
-        nuId: new FormControl('001692903', [Validators.required]),
-        emailId: new FormControl('michelsen.a@husky.neu.edu', [Validators.required]),
-        givenName: new FormControl('Anna', [Validators.required]),
-        surname: new FormControl('Michelsen', [Validators.required]),
+        nuId: new FormControl('', [Validators.required]),
+        emailId: new FormControl('', [Validators.required]),
+        givenName: new FormControl('', [Validators.required]),
+        surname: new FormControl('', [Validators.required]),
       }),
       optcatdetails: new FormGroup({
-        farpa: new FormControl(false, [Validators.required]),
+        ferpa: new FormControl(false, [Validators.required]),
         privacy: new FormControl(false, [Validators.required]),
         gdpr: new FormControl(false, [Validators.required]),
         gni: new FormControl(false, [Validators.required]),
@@ -55,7 +59,36 @@ export class DashboardComponent implements OnInit {
       })
     });
     this.optinSectionDisplay();
+    // this.getCategoriesByMailId();
   }
+
+  // getCategoriesByMailId(){
+  //   console.log('getCategoriesByMailId');
+  //   const userfetch = {
+  //     mailId: this.userDetails.emailId,
+  //     type: "studentCatDetails"
+  //   };
+  //   this.userService.getCategoriesByMailId(userfetch).subscribe(
+  //     (res: any) => {
+  //       if (res.status === 200) {
+  //         const optCat = this.form.get('optcatdetails') as FormGroup;
+  //         optCat.controls['gni'].setValue(res.respData.gni);
+  //         optCat.controls['anb'].setValue(res.respData.anb);
+  //         optCat.controls['grd'].setValue(res.respData.grd);
+  //         optCat.controls['doc'].setValue(res.respData.doc);
+  //         optCat.controls['shl'].setValue(res.respData.shl);
+  //         optCat.controls['adv'].setValue(res.respData.adv);
+  //         optCat.controls['hsn'].setValue(res.respData.hsn);
+  //         optCat.controls['ferpa'].setValue(res.respData.ferpa);
+  //         optCat.controls['privacy'].setValue(res.respData.privacy);
+  //         optCat.controls['gdpr'].setValue(res.respData.gdpr);
+  //         // this.form.updateValueAndValidity();
+  //       }
+  //       this.optinSectionDisplay();
+  //     }, (err: any) => {
+
+  //     });
+  // }
 
   /**
    * Change behavior of categories depend on agreement checkboxes
