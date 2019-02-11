@@ -13,6 +13,9 @@
       <form [formGroup]="form" (ngSubmit)="ngSubmit()">
         <div formGroupName="optcatdetails">
           <div class="box box-info">
+              <div class="overlay" *ngIf="loader">
+                  <i class="fa fa-refresh fa-spin"></i>
+              </div>
             <div class="box-header with-border">
               <h3 class="box-title">FERPA Declaration</h3>
               <div class="box-tools pull-right">
@@ -27,7 +30,7 @@
                   <tbody>
                     <tr>
                       <td>
-                        <input type="checkbox" (change)="optinSectionDisplay()" formControlName="farpa">
+                        <input type="checkbox" (change)="optinSectionDisplay()" formControlName="ferpa">
                       </td>
                       <td>I have read, understood and agree to the terms and conditions <a style="cursor: pointer;" (click)="openModal(ferpaDeclaration)">FERPA declaration</a>.</td>
                     </tr>
@@ -38,8 +41,10 @@
           </div>
           </div>
 
-
           <div class="box box-info">
+              <div class="overlay" *ngIf="loader">
+                  <i class="fa fa-refresh fa-spin"></i>
+              </div>
             <div class="box-header with-border">
               <h3 class="box-title">GDPR Declaration</h3>
               <div class="box-tools pull-right">
@@ -69,6 +74,9 @@
           </div>
 
           <div class="box box-info">
+              <div class="overlay" *ngIf="loader">
+                  <i class="fa fa-refresh fa-spin"></i>
+              </div>
             <div class="box-header with-border">
               <h3 class="box-title">Privacy Statement Declaration</h3>
               <div class="box-tools pull-right">
@@ -94,11 +102,10 @@
             </div>
           </div>
 
-
-
-
-
           <div class="box box-primary">
+              <div class="overlay" *ngIf="loader">
+                  <i class="fa fa-refresh fa-spin"></i>
+              </div>
             <div class="box-header with-border">
               <h3 class="box-title">Select categories you want to opt-in</h3>
               <div class="box-tools pull-right">

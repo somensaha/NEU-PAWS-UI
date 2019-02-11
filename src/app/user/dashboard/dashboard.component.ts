@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   alert: AlertModel;
   optcatdetails: any;
   userDetails: UserInfoModel;
+  loader: boolean;
 
   constructor(
       private fb: FormBuilder,
@@ -26,12 +27,13 @@ export class DashboardComponent implements OnInit {
       private toastr: ToastrService,
       private modalService: BsModalService,
   ) {
+    this.loader = true;
   }
 
   ngOnInit() {
     this.allAgreement = false;
-    this.createForm();
     this.userDetails = {emailId: 'michelsen.a@husky.neu.edu', givenName: 'Anna', surname: 'Michelsen', nuId: '001692903'};
+    this.createForm();
   }
 
   /**
@@ -40,10 +42,10 @@ export class DashboardComponent implements OnInit {
   createForm() {
     this.form = this.fb.group({
       studentdetails: new FormGroup({
-        nuId: new FormControl('', [Validators.required]),
-        emailId: new FormControl('', [Validators.required]),
-        givenName: new FormControl('', [Validators.required]),
-        surname: new FormControl('', [Validators.required]),
+        nuId: new FormControl(this.userDetails.nuId, [Validators.required]),
+        emailId: new FormControl(this.userDetails.emailId, [Validators.required]),
+        givenName: new FormControl(this.userDetails.givenName, [Validators.required]),
+        surname: new FormControl(this.userDetails.surname, [Validators.required]),
       }),
       optcatdetails: new FormGroup({
         ferpa: new FormControl(false, [Validators.required]),
@@ -58,44 +60,46 @@ export class DashboardComponent implements OnInit {
         hsn: new FormControl(false, [Validators.required])
       })
     });
-    this.optinSectionDisplay();
-    // this.getCategoriesByMailId();
+    this.getCategoriesByMailId();
   }
 
-  // getCategoriesByMailId(){
-  //   console.log('getCategoriesByMailId');
-  //   const userfetch = {
-  //     mailId: this.userDetails.emailId,
-  //     type: "studentCatDetails"
-  //   };
-  //   this.userService.getCategoriesByMailId(userfetch).subscribe(
-  //     (res: any) => {
-  //       if (res.status === 200) {
-  //         const optCat = this.form.get('optcatdetails') as FormGroup;
-  //         optCat.controls['gni'].setValue(res.respData.gni);
-  //         optCat.controls['anb'].setValue(res.respData.anb);
-  //         optCat.controls['grd'].setValue(res.respData.grd);
-  //         optCat.controls['doc'].setValue(res.respData.doc);
-  //         optCat.controls['shl'].setValue(res.respData.shl);
-  //         optCat.controls['adv'].setValue(res.respData.adv);
-  //         optCat.controls['hsn'].setValue(res.respData.hsn);
-  //         optCat.controls['ferpa'].setValue(res.respData.ferpa);
-  //         optCat.controls['privacy'].setValue(res.respData.privacy);
-  //         optCat.controls['gdpr'].setValue(res.respData.gdpr);
-  //         // this.form.updateValueAndValidity();
-  //       }
-  //       this.optinSectionDisplay();
-  //     }, (err: any) => {
+  getCategoriesByMailId(){
+    console.log('getCategoriesByMailId');
+    const userfetch = {
+      mailId: this.userDetails.emailId,
+      type: 'studentCatDetails'
+    };
+    this.userService.getCategoriesByMailId(userfetch).subscribe(
+      (res: any) => {
+        if (res.status === 200) {
+          const optCat = this.form.get('optcatdetails') as FormGroup;
+          optCat.controls['gni'].setValue(res.respData.gni);
+          optCat.controls['anb'].setValue(res.respData.anb);
+          optCat.controls['grd'].setValue(res.respData.grd);
+          optCat.controls['doc'].setValue(res.respData.doc);
+          optCat.controls['shl'].setValue(res.respData.shl);
+          optCat.controls['adv'].setValue(res.respData.adv);
+          optCat.controls['hsn'].setValue(res.respData.hsn);
+          optCat.controls['ferpa'].setValue(res.respData.ferpa);
+          optCat.controls['privacy'].setValue(res.respData.privacy);
+          optCat.controls['gdpr'].setValue(res.respData.gdpr);
+          // this.form.updateValueAndValidity();
+        }
+        this.optinSectionDisplay();
+      }, (err: any) => {
 
-  //     });
-  // }
+      }, () => {
+          this.optinSectionDisplay();
+
+      });
+  }
 
   /**
    * Change behavior of categories depend on agreement checkboxes
    */
   optinSectionDisplay() {
     const optCat = this.form.get('optcatdetails') as FormGroup;
-    if (optCat.controls['farpa'].value === true
+    if (optCat.controls['ferpa'].value === true
         && optCat.controls['privacy'].value === true
         && optCat.controls['gdpr'].value === true) {
       this.allAgreement = true;
@@ -123,6 +127,7 @@ export class DashboardComponent implements OnInit {
       optCat.controls['gni'].disable();
       this.allAgreement = false;
     }
+    this.loader = false;
     // console.log('allAgreement', this.allAgreement);
   }
 
@@ -130,25 +135,28 @@ export class DashboardComponent implements OnInit {
    * Save user configuration data
    */
   ngSubmit() {
+    this.loader = true;
     console.log(this.form.value);
     if (this.form.valid) {
       this.userService.updateCategories(this.form.value).subscribe(
-          (res: any) => {
-            if (res.status === 200) {
-              setTimeout(() => {
-                this.toastr.success('Saved', 'Configuration saved successfully');
-              });
-            } else {
-              setTimeout(() => {
-                this.toastr.error('Failed', 'Configuration not saved');
-              });
-            }
-
-          }, (err: any) => {
+        (res: any) => {
+          if (res.status === 200) {
+            setTimeout(() => {
+              this.toastr.success('Saved', 'Configuration saved successfully');
+            });
+          } else {
             setTimeout(() => {
               this.toastr.error('Failed', 'Configuration not saved');
             });
+          }
+          this.loader = false;
+
+        }, (err: any) => {
+          setTimeout(() => {
+            this.toastr.error('Failed', 'Configuration not saved');
           });
+          this.loader = false;
+        });
     }
   }
 
