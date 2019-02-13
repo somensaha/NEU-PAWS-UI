@@ -20,6 +20,8 @@ export class DashboardComponent implements OnInit {
   optcatdetails: any;
   userDetails: UserInfoModel;
   loader: boolean;
+  gdprDisplay: boolean;
+  privacyDisplay: boolean;
 
   constructor(
       private fb: FormBuilder,
@@ -63,7 +65,10 @@ export class DashboardComponent implements OnInit {
     this.getCategoriesByMailId();
   }
 
-  getCategoriesByMailId(){
+  /**
+   * Fetch user details
+   */
+  getCategoriesByMailId() {
     console.log('getCategoriesByMailId');
     const userfetch = {
       mailId: this.userDetails.emailId,
@@ -98,6 +103,7 @@ export class DashboardComponent implements OnInit {
    * Change behavior of categories depend on agreement checkboxes
    */
   optinSectionDisplay() {
+    this.displaySelector();
     const optCat = this.form.get('optcatdetails') as FormGroup;
     if (optCat.controls['ferpa'].value === true
         && optCat.controls['privacy'].value === true
@@ -166,5 +172,23 @@ export class DashboardComponent implements OnInit {
    */
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  displaySelector() {
+    console.log(1222);
+    const optCat = this.form.get('optcatdetails') as FormGroup;
+    if (optCat.controls['ferpa'].value) {
+      this.gdprDisplay = true;
+    } else {
+      this.gdprDisplay = false;
+      optCat.controls['gdpr'].setValue(false);
+    }
+
+    if (optCat.controls['gdpr'].value) {
+      this.privacyDisplay = true;
+    } else {
+      this.privacyDisplay = false;
+      optCat.controls['privacy'].setValue(false);
+    }
   }
 }

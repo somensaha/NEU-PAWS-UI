@@ -45,6 +45,9 @@
               <div class="overlay" *ngIf="loader">
                   <i class="fa fa-refresh fa-spin"></i>
               </div>
+              <div class="overlay" *ngIf="!gdprDisplay">
+                  <i class="fa"></i>
+              </div>
             <div class="box-header with-border">
               <h3 class="box-title">GDPR Declaration</h3>
               <div class="box-tools pull-right">
@@ -77,6 +80,9 @@
               <div class="overlay" *ngIf="loader">
                   <i class="fa fa-refresh fa-spin"></i>
               </div>
+              <div class="overlay" *ngIf="!privacyDisplay">
+                  <i class="fa"></i>
+              </div>
             <div class="box-header with-border">
               <h3 class="box-title">Privacy Statement Declaration</h3>
               <div class="box-tools pull-right">
@@ -105,6 +111,9 @@
           <div class="box box-primary">
               <div class="overlay" *ngIf="loader">
                   <i class="fa fa-refresh fa-spin"></i>
+              </div>
+              <div class="overlay" *ngIf="!allAgreement">
+                  <i class="fa"></i>
               </div>
             <div class="box-header with-border">
               <h3 class="box-title">Select categories you want to opt-in</h3>
@@ -191,32 +200,21 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">
-    FERPA: Annual Notification to Students
-    The Family Educational Rights and Privacy Act of 1974 (FERPA) guarantees that the academic records for students over 18 years old cannot be discussed with anyone except the student or authorized University personnel. However, certain information classified as "Directory Information" is available for public consumption unless the student specifically directs that it be withheld. Public Directory Information as defined by the act includes: Student's name, addresses (campus, home, e-mail), telephone listings, photograph, date and place of birth, major field of study, class year, participation in officially recognized activities and sports, weight and height of members of athletic teams, dates of attendance, enrollment status (e.g., undergraduate or graduate; full-time, half-time, part-time), degrees, honors, and awards received, and the most recent previous educational institution attended.
+  <div class="modal-body" style="text-align: justify">
+      <strong>FERPA: Annual Notification to Students</strong>
+      <p>The Family Educational Rights and Privacy Act of 1974 (FERPA) guarantees that the academic records for students over 18 years old cannot be discussed with anyone except the student or authorized University personnel. However, certain information classified as "Directory Information" is available for public consumption unless the student specifically directs that it be withheld. Public Directory Information as defined by the act includes: Student's name, addresses (campus, home, e-mail), telephone listings, photograph, date and place of birth, major field of study, class year, participation in officially recognized activities and sports, weight and height of members of athletic teams, dates of attendance, enrollment status (e.g., undergraduate or graduate; full-time, half-time, part-time), degrees, honors, and awards received, and the most recent previous educational institution attended. To request that directory information be withheld, please contact the Registrar's Office.</p>
+      <strong>FERPA affords students certain rights with respect to their education records. They are:</strong>
 
-    To request that directory information be withheld, please contact the Registrar's Office.
+      <p>The right to inspect and review the student's education records within 45 days of the day the University receives a request for access. Students should submit to the registrar, dean, head of the academic department, or other appropriate official, written requests that identify the record(s) they wish to inspect. The University official will make arrangements for access and notify the student of the time and place where the records may be inspected. If the records are not maintained by the University official to whom the request was submitted, that official shall advise the student of the correct official to whom the request should be addressed.</p>
 
-    FERPA affords students certain rights with respect to their education records. They are:
+      <p>The right to request the amendment of the student's education records that the student believes are inaccurate or misleading. Students may ask the University to amend a record that they believe is inaccurate or misleading.  They should write the University official responsible for the record, clearly identifying the part of the record that they want changed, and specify why it is inaccurate or misleading. If the University decides not to amend the record as requested by the student, the University will notify the student of the decision and advise the student of his or her right to a hearing regarding the request for amendment. Additional information regarding the hearing procedures will be provided to the student when notified of the right to a hearing.</p>
 
-    The right to inspect and review the student's education records within 45 days of the day the University receives a request for access.
-    Students should submit to the registrar, dean, head of the academic department, or other appropriate official, written requests that identify the record(s) they wish to inspect. The University official will make arrangements for access and notify the student of the time and place where the records may be inspected. If the records are not maintained by the University official to whom the request was submitted, that official shall advise the student of the correct official to whom the request should be addressed.
+      <p>The right to consent to disclosures of personally identifiable information contained in the student's education records, except to the extent that FERPA authorizes disclosure without consent. One exception that permits disclosure without consent is disclosure to school officials with legitimate educational interests. A school official is a person employed by the University in an administrative, supervisory, academic or research, or support staff position (including law enforcement unit personnel and health staff); a person or company with whom the University has contracted (such as an attorney, auditor, or collection agent); a person serving on the Board of Trustees; or a student serving on an official committee, such as a disciplinary or grievance committee, or assisting another school official in performing his or her tasks. A school official has a legitimate educational interest if the official needs to review an education record in order to fulfill his or her professional responsibility.</p>
 
-    The right to request the amendment of the student's education records that the student believes are inaccurate or misleading.
-    Students may ask the University to amend a record that they believe is inaccurate or misleading.  They should write the University official responsible for the record, clearly identifying the part of the record that they want changed, and specify why it is inaccurate or misleading. If the University decides not to amend the record as requested by the student, the University will notify the student of the decision and advise the student of his or her right to a hearing regarding the request for amendment. Additional information regarding the hearing procedures will be provided to the student when notified of the right to a hearing.
+      <p>The right to file a complaint with the U.S. Department of Education concerning alleged failure by Clark University to comply with the requirements of FERPA.</p>
+      <p>The name and address of the office that administers FERPA is: Family Policy Compliance Office U.S., Department of Education, 600 Independence Avenue, SW, Washington, DC 20202-4605</p>
 
-    The right to consent to disclosures of personally identifiable information contained in the student's education records, except to the extent that FERPA authorizes disclosure without consent.
-    One exception that permits disclosure without consent is disclosure to school officials with legitimate educational interests. A school official is a person employed by the University in an administrative, supervisory, academic or research, or support staff position (including law enforcement unit personnel and health staff); a person or company with whom the University has contracted (such as an attorney, auditor, or collection agent); a person serving on the Board of Trustees; or a student serving on an official committee, such as a disciplinary or grievance committee, or assisting another school official in performing his or her tasks. A school official has a legitimate educational interest if the official needs to review an education record in order to fulfill his or her professional responsibility.
-
-    The right to file a complaint with the U.S. Department of Education concerning alleged failure by Clark University to comply with the requirements of FERPA.
-    The name and address of the office that administers FERPA is:
-    Family Policy Compliance Office
-    U.S. Department of Education
-    600 Independence Avenue, SW
-    Washington, DC 20202-4605
-
-    Federal and State Data Collection and Use
-    As of January 3, 2012, the U.S. Department of Education's FERPA regulations expand the circumstances under which student education records and personally identifiable information (PII) contained in such records--including Social Security Number, grades, or other private information--may be accessed without student consent. First, the U.S. Comptroller General, the U.S. Attorney General, the U.S. Secretary of Education, or state and local education authorities ("Federal and State Authorities") may allow access to records and PII without student consent to any third party designated by a Federal or State Authority to evaluate a federal- or state-supported education program. The evaluation may relate to any program that is "principally engaged in the provision of education," such as early childhood education and job training, as well as any program that is administered by an education agency or institution. Second, Federal and State Authorities may allow access to education records and PII without student consent to researchers performing certain types of studies, in certain cases even when Authorities object to or do not request such research. Federal and State Authorities must obtain certain use-restriction and data security promises from the entities that they authorize to receive PII, but the Authorities need not maintain direct control over such entities. In addition, in connection with Statewide Longitudinal Data Systems, State Authorities may collect, complile, permanently retain, and share without student consent PII from education records, and they may track participation in education and other programs by linking such PII to other personal information obtained from other Federal or State data sources, including workforce development, unemployment insurance, child welfare, juvenile justice, military service, and migrant student records systems.
+      <p>Federal and State Data Collection and Use As of January 3, 2012, the U.S. Department of Education's FERPA regulations expand the circumstances under which student education records and personally identifiable information (PII) contained in such records--including Social Security Number, grades, or other private information--may be accessed without student consent. First, the U.S. Comptroller General, the U.S. Attorney General, the U.S. Secretary of Education, or state and local education authorities ("Federal and State Authorities") may allow access to records and PII without student consent to any third party designated by a Federal or State Authority to evaluate a federal- or state-supported education program. The evaluation may relate to any program that is "principally engaged in the provision of education," such as early childhood education and job training, as well as any program that is administered by an education agency or institution. Second, Federal and State Authorities may allow access to education records and PII without student consent to researchers performing certain types of studies, in certain cases even when Authorities object to or do not request such research. Federal and State Authorities must obtain certain use-restriction and data security promises from the entities that they authorize to receive PII, but the Authorities need not maintain direct control over such entities. In addition, in connection with Statewide Longitudinal Data Systems, State Authorities may collect, complile, permanently retain, and share without student consent PII from education records, and they may track participation in education and other programs by linking such PII to other personal information obtained from other Federal or State data sources, including workforce development, unemployment insurance, child welfare, juvenile justice, military service, and migrant student records systems.</p>
   </div>
   <div class="modal-footer">
     <button type="button" (click)="modalRef.hide()" class="btn btn-primary pull-right">Ok</button>
@@ -230,43 +228,35 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">
-    Privacy FAQ for Husky Helper
-    What is Husky Helper?
-    Husky Helper is a skill on the Amazon Alexa digital assistant platform that entails building a personalized experience for all students, accessible by both voice and chatbot on your phone, personal computer or other personal devices.  Students who opt in and consent will have the ability to link their Northeastern account to n-Powered’s platform so that the Husky Husky skill will be able to identify who is seeking information and provide a personalized response for each student.  Accessible information will include a student’s individual class schedule, account profile information, husky card balance, student account balance, housing assignments and others.
-    How is data accessed?  
-    To enable the skill to work, n-Powered will store your name, NUID, and advisor information which will help Northeastern and n-Powered identify you and provide answers to many of your questions. Sensitive personal information such as social security numbers, passport numbers, or other personally identifiable information will not be transferred or stored anywhere other than in Northeastern’s secure server.  
-    All data transmitted from Northeastern Servers will be encrypted with the highest level of security.
-    Where does Amazon fit in?
-    We use Amazon’s platform to make this work.  Amazon stores information about usage that can be purged upon request. According to Amazon’s website, AWS services are GDPR-Ready. You can read more about this in the links below. If you have any concerns about this, please contact privacy@northeastern.edu.
-    https://aws.amazon.com/privacy/
-    https://aws.amazon.com/alexaforbusiness/faqs/#Privacy_and_data_security
-
-    https://aws.amazon.com/compliance/gdpr-center/
-    How does Husky Helper use your data?
-    This data is going to be used to provide you with personalized information when you need it via smart phones and other personal devices.
-    This data is never going to be sold, distributed, or shared with a third party other than the purpose stated above.
-    What can you do to protect your data?
-    Security is a shared responsibility. While NU and n-Powered will do our part to keep your data secure while it’s in our care, users should be aware of their surroundings when configuring their Husky Helper settings. Once you have opted in and authenticated to Husky Helper, your information will be ready and available for use. This also means that anyone else with access to your device will be able to ask your smart speaker questions about YOU. This may expose your personal information inadvertently. Please use caution when linking Husky Helper to devices that may be available to individuals other than yourself.
-    “How do I opt in”
-    We will provide options for you to opt in to only the categories of data that you consent to make available to the NPowered platform for use within the HHII app.
-    “How do I opt out”
-    You can update your preferences at any time by going to the HHII app (website). You will have the option of opting out of this entire application at any time by [doing something very simple, like selecting the opt-out button].  Please note that if you opt out, all data will be removed.
-    If you have any questions, please contact the Office of Information Security at privacy@northeastern.edu.
-    How do I get more information about NU’s privacy practices?
-    NU’s privacy statement is available online at https://www.northeastern.edu/privacy-information.
-    Consent/Opt-in
-    Yes, I have read the FAQ’s and want to participate in Husky Helper Phase II to be able to get personalized answers to my Northeastern-related questions on my smart phone or other personal device.  I understand and acknowledge that in order for me to get personalized responses, the Husky Helper II App will draw information from secure NU servers, and I expressly consent to making my personal data, as indicated below, available to the HHII App on the N-Powered platform.  I understand that my information may be transmitted in an encrypted for but that no other personal information will be stored except as noted above. I agree to indicate which specific data I am willing to have the HHII app access, and I understand that I can opt out of the entire application at any time by selecting the opt out button.   I understand that I will have the option of removing my data from the app.
-    Proposed language to add to NU Privacy Notice
-    Add to bulleted list of “How We Use Your Information”:
-    • If you download and opt in to the Husky Helper App, your personal data from NU’s secure servers will be made available on the N-powered platform for the purpose of personalizing answers to your questions, such as about individual class schedule, account profile information, husky card balance, student account balance, housing assignments, and academic advisor.   See HHII webpage?
+  <div class="modal-body" style="text-align: justify">
+      <strong>What is Husky Helper?</strong>
+      <p>Husky Helper is a skill on the Amazon Alexa digital assistant platform that entails building a personalized experience for all students, accessible by both voice and chatbot on your phone, personal computer or other personal devices.  Students who opt in and consent will have the ability to link their Northeastern account to n-Powered’s platform so that the Husky Husky skill will be able to identify who is seeking information and provide a personalized response for each student.  Accessible information will include a student’s individual class schedule, account profile information, husky card balance, student account balance, housing assignments and others.</p>
+      <strong>How is data accessed?</strong>
+      <p>To enable the skill to work, n-Powered will store your name, NUID, and advisor information which will help Northeastern and n-Powered identify you and provide answers to many of your questions. Sensitive personal information such as social security numbers, passport numbers, or other personally identifiable information will not be transferred or stored anywhere other than in Northeastern’s secure server. All data transmitted from Northeastern Servers will be encrypted with the highest level of security.</p>
+      <strong>Where does Amazon fit in?</strong>
+      <p>We use Amazon’s platform to make this work.  Amazon stores information about usage that can be purged upon request. According to Amazon’s website, AWS services are GDPR-Ready. You can read more about this in the links below. If you have any concerns about this, please contact privacy@northeastern.edu., https://aws.amazon.com/privacy/, https://aws.amazon.com/alexaforbusiness/faqs/#Privacy_and_data_security, https://aws.amazon.com/compliance/gdpr-center/</p>
+      <strong>How does Husky Helper use your data?</strong>
+      <p>This data is going to be used to provide you with personalized information when you need it via smart phones and other personal devices. This data is never going to be sold, distributed, or shared with a third party other than the purpose stated above.</p>
+      <strong>What can you do to protect your data?</strong>
+      <p>Security is a shared responsibility. While NU and n-Powered will do our part to keep your data secure while it’s in our care, users should be aware of their surroundings when configuring their Husky Helper settings. Once you have opted in and authenticated to Husky Helper, your information will be ready and available for use. This also means that anyone else with access to your device will be able to ask your smart speaker questions about YOU. This may expose your personal information inadvertently. Please use caution when linking Husky Helper to devices that may be available to individuals other than yourself.</p>
+      <strong>How do I opt in</strong>
+      <p>We will provide options for you to opt in to only the categories of data that you consent to make available to the NPowered platform for use within the HHII app.</p>
+      <strong>How do I opt out</strong>
+      <p>You can update your preferences at any time by going to the HHII app (website). You will have the option of opting out of this entire application at any time by [doing something very simple, like selecting the opt-out button].  Please note that if you opt out, all data will be removed.</p>
+      <p>If you have any questions, please contact the Office of Information Security at privacy@northeastern.edu.</p>
+      <strong>How do I get more information about NU’s privacy practices?</strong>
+      <p>NU’s privacy statement is available online at https://www.northeastern.edu/privacy-information.</p>
+      <p>Consent/Opt-in</p>
+      <p>Yes, I have read the FAQ’s and want to participate in Husky Helper Phase II to be able to get personalized answers to my Northeastern-related questions on my smart phone or other personal device.  I understand and acknowledge that in order for me to get personalized responses, the Husky Helper II App will draw information from secure NU servers, and I expressly consent to making my personal data, as indicated below, available to the HHII App on the N-Powered platform.  I understand that my information may be transmitted in an encrypted for but that no other personal information will be stored except as noted above. I agree to indicate which specific data I am willing to have the HHII app access, and I understand that I can opt out of the entire application at any time by selecting the opt out button.   I understand that I will have the option of removing my data from the app.</p>
+      <p>Proposed language to add to NU Privacy Notice</p>
+      <p>Add to bulleted list of “How We Use Your Information”:</p>
+      <p>If you download and opt in to the Husky Helper App, your personal data from NU’s secure servers will be made available on the N-powered platform for the purpose of personalizing answers to your questions, such as about individual class schedule, account profile information, husky card balance, student account balance, housing assignments, and academic advisor.</p>
 
   </div>
   <div class="modal-footer">
     <button type="button" (click)="modalRef.hide()" class="btn btn-primary pull-right">Ok</button>
   </div>
 </ng-template>
-
 
 <ng-template #gdrpDeclaration>
   <div class="modal-header">
