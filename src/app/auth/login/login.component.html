@@ -1,76 +1,27 @@
-<div class="register-box">
-
-  <div class="register-logo">
-    <span class="logo-lg">
-      <span class="logo-lg"><img src="../../assets/img/logo.png" style="width: 22%;"></span>
-    </span>
-    <p><b>{{title}}</b></p>
-  </div>
-  <div class="box">
-    <div class="overlay" *ngIf="loader === true">
-      <i class="fa fa-refresh fa-spin"></i>
-    </div>
-    <div class="box-body">
-      <p class="login-box-msg">Login as student</p>
-
-      <form name="form" #form="ngForm" (ngSubmit)="onSubmit(form)" role="form">
-        <div class="row">
-          <alert [type]="alert?.type" *ngIf="alert?.type !== undefined && alert?.type !== null">
-            <strong>{{alert.type.toUpperCase()}}!</strong> {{alert.message}}
-          </alert>
-        </div>
-        <!--<div class="form-group has-feedback">-->
-          <!--<input type="text" id="nuID" placeholder="Northeastern ID*" class="form-control"-->
-                 <!--#nuID="ngModel" ngModel name="nuID" required />-->
-          <!--<span class="error-span" *ngIf="nuID.touched && nuID?.errors?.required">Northeastern ID is required</span>-->
-        <!--</div>-->
-        <!--<div class="form-group has-feedback">-->
-          <!--<input type="email" id="email" name="email" class="form-control" ngModel #email="ngModel"-->
-                 <!--pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$"-->
-                 <!--required placeholder="mail@domain.com*" />-->
-          <!--<span class="error-span" *ngIf="email.touched && email?.errors?.required">Email ID is required</span>-->
-          <!--<span class="error-span" *ngIf="email.touched && email?.errors?.pattern">Invalid Email ID</span>-->
-          <!--<span class="error-span" *ngIf="email.touched && email?.errors?.incorrect">Email ID is already existed. Please try another.</span>-->
-        <!--</div>-->
-        <!--<div class="form-group has-feedback">-->
-          <!--<input type="text" id="fullName" placeholder="Full Name*" class="form-control"-->
-                 <!--#fullName="ngModel" ngModel name="fullName" required />-->
-          <!--<span class="error-span" *ngIf="fullName.touched && fullName?.errors?.required">Full Name is required</span>-->
-        <!--</div>-->
-        <div class="row" style="text-align: center">
-          <!--<div class="col-xs-12" style="text-align: center;">-->
-            <!--<div class="checkbox icheck">-->
-            <!--<label>-->
-            <!--<input type="checkbox"> I agree to the <a href="#">terms</a>-->
-            <!--</label>-->
-            <!--</div>-->
-          <!--<button type="button" class="btn btn-danger social-button" (click)="socialSignIn('google')">Sign in with <i class="fa fa-google-plus" aria-hidden="true"></i></button>-->
-          <button type="button" class="btn btn-primary social-button" (click)="ssoLogin()">Sign in with SSO</button>
-            <!--<button type="button" (click)="socialSignIn('google')">Sign in with Google <i class="fa fa-google-plus" aria-hidden="true"></i></button>-->
-          <!--</div>-->
-          <!-- /.col -->
-          <!--<div class="col-xs-4">-->
-            <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>-->
-          <!--</div>-->
-          <!--<div class="col-xs-8">-->
-          <!--<a routerLink="/forget-password" class="text-center">Forget Password</a>-->
-          <!--<br/>-->
-          <!--<a routerLink="/forget-username" class="text-center">Forgotten username</a>-->
-          <!--</div>-->
-          <!-- /.col -->
-        </div>
-      </form>
-
-      <!--<div class="social-auth-links text-center">-->
-      <!--<p>- OR -</p>-->
-      <!--<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using-->
-      <!--Facebook</a>-->
-      <!--<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using-->
-      <!--Google+</a>-->
-      <!--</div>-->
-
-    </div>
-
-  </div>
-<!-- /.form-box -->
+<div class=" container-fluid header">
+    	<div class="row">
+    	    <div class="col-md-3 header-left">
+   	          <img src="../../../assets/images/logo.jpg" alt="logo">
+          </div>
+          <div class="col-md-6 header-center">
+          </div>
+          <div class="col-md-3 header-right">
+      	      <img src="../../../assets/images/logo-left.jpg" alt="logo">
+          </div>
+      </div>
 </div>
+<div class="border-part"></div>
+<!--hrader end-->
+<section class="container-fluid">
+	<div class="body-part">
+    	<div class="row">
+        	<div class="col-md-8">
+       	    <img src="../../../assets/images/front.jpg" class="img-responsiv">
+            </div>
+
+        <div class="col-md-4">
+        	<div class="btn sine" (click)="ssoLogin()">SIGN IN</div>
+        </div>
+    </div>
+    </div>
+</section>

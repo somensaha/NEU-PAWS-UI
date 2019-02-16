@@ -7,6 +7,7 @@
     color: #00a65a;
 }
 
+
 .login-page, .register-page {
     background: white;
 }
@@ -26,3 +27,62 @@
 /*.tooltip {*/
     /*opacity: 100;*/
 /*}*/
+
+@charset "utf-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+
+body{font-family: 'Roboto', sans-serif; font-size:14px;}
+.header{ width:93%; min-height:90px; padding-top:20px; }
+.header img{ max-width:100%; width:auto;}
+.header-left{ /*--float:left;--*/ text-align:left; padding:0}
+.header-center{ text-align: center;
+
+color: #cb4545;
+
+font-size: 37px;
+
+font-weight: 300;
+
+line-height: 39px;
+
+font-weight: 100;}
+.header-center span{ font-size:23px; font-weight:bold;}
+.header-right{ /*--float:right;--*/ text-align: right; padding:0;}
+
+.border-part{ border-top:1px solid #ccc; min-height:2px; margin:0 auto; width:89%; padding-top:15px;}
+
+.body-part{ overflow:hidden; min-height:200px; margin:0 auto; width:93%; padding-top:15px;}
+
+.img-responsiv{ width:auto; max-width:100%;}
+
+.sine{ background:#193388; padding:15px; width:90%; border-radius:0; font-size:40px; margin-top:50%; color:#fff; font-weight:900;}
+.sine a{ color:#fff; text-decoration:none;}
+.clr{ clear:both;}
+
+
+.con-btn{ background:#193388; padding:5px; width:200px; border-radius:0; float:none;display: block; font-size:23px; margin:20px auto; color:#fff; font-weight:900;}
+.con-btn a{ color:#fff; text-decoration:none;}
+
+.list-box{ margin:50px 0 ; padding:0; list-style:none;}
+.list-box li{ position:relative; padding-left:80px; }
+.list-box li .box{ border:2px solid #000000; position:absolute; left:0; width:55px; height:50px; top:0;}
+
+.list-box2{ margin:10px 0 ; padding:0; list-style:none;}
+.list-box2 li{ position:relative; padding-left:80px; margin-bottom:20px;min-height: 117px; }
+.list-box2 li .box{ border:2px solid #444; position:absolute; left:0; width:55px; height:40px; top:26px;}
+
+.awesom{ text-align:center; color:#ccc; font-size:18px; margin-bottom:30px;}
+.awesom h2{ font-size:50px;}
+
+
+
+@media only screen and ( min-width:240px) and (max-width:768px) {
+	.header { text-align: center !important;}
+	.header img {
+    display: block;
+    margin: 0 auto;}
+	.sine { width: 100%; margin-top:10%; margin-bottom:20px;}
+	.offset-1,.offset-2 { margin-left:0;}
+}
+
