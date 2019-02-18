@@ -2,37 +2,58 @@
 	<div class="body-part">
     	<div class="row">
         	<div class="col-md-6">
-            	<div class="col-md-11">FARPA
-       	    	    <h6>The only type of information that is to be released under this consent is:</h6>
-                  <p>
-                    The information is to be released for the following purpose: class schedules any holds on record (financial, academic etc.) Advisor information (academic, financial) Events
-                  </p>
+            	<div class="col-md-11">
+                    <strong style="font-size: 16px;">FERPA</strong>
+                    <p>
+                        The only type of information that is to be released under this consent is:
+                    </p>
+                    <p>
+                        The information is to be released for the following purpose:
+                    </p>
+                        <ul>
+                        <li>Class schedules</li>
+                        <li>Any holds on record (financial, academic etc.)</li>
+                        <li>Advisor information (academic, financial)</li>
+                        <li>Events</li>
+                        </ul>
+                    <p>
+                        The information is to be released for the following purpose:
+                    </p>
+                        <ul>
+                        <li>Family communications about university experience</li>
+                        <li>Employment</li>
+                        <li>Admission to an educational institution</li>
+                        </ul>
 
-                  <p>
-                      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-                  </p>
-              </div>
-          </div>
+                    <p>
+                        To particiapte in beta testing n-Powered Alexa Skill for students.
+                    </p>
+                    <p>
+                        Note: this Consent does not cover medical records held solely by Student Health Services or the Counseling Center – contact those offices for consent forms.
+                    </p>
+                </div>
+            </div>
           <div class="col-md-6">
               <div class="col-md-11">
-       	    	    <h6>The information is to be released for the following purpose:</h6>
                   <p>
-                    family communications about university experience employment admission to an educational institution to particiapte in beta testing n-Powered Alexa Skill for students.
+                      I understand the information may be released orally or in the form of copies of written
+                      records, as preferred by the requester. I have a right to inspect any written records released
+                      pursuant to this Consent (except for parents’ financial records and certain letters of
+                      recommendation for which the student waived inspection rights). I understand I may revoke this
+                      Consent upon providing written notice to the Office of Student Affairs. I further understand that
+                      until this revocation is made, this consent shall remain in effect and my educational records will
+                      continue to be provided for the specific purpose described above.
                   </p>
                   <div class=" clr"></div>
                   <ul class="list-box">
                       <li>
-                          <input type="checkbox" class="box">
-                          I understand the information may be released orally or in the form of copies of written records, as preferred by the requester. I have a right to inspect any written records released pursuant to this Consent (except for parents’ financial records and certain letters of recommendation for which the student waived inspection rights). I understand I may revoke this Consent upon providing written notice to the Office of Student Affairs. I further understand that until this revocation is made, this consent shall remain in effect and my educational records will continue to be provided for the specific purpose described above.
-
-                          Note: this Consent does not cover medical records held solely by Student Health Services or the Counseling Center – contact those offices for consent forms.
-
+                          <input type="checkbox" class="box" (ngModelChange)="onFerpaChange()" [ngModel]="ferpaStatus">
+                            By checking this box I agree to the terms and condition and understand my rights
+                            under FERPA.
                       </li>
                   </ul>
-                  <div class=" clr"></div>
-
-
-                  <div class="btn con-btn">CONTINUE</div>
+                  <div class="clr"></div>
+                  <button class="btn con-btn" [disabled]="!ferpaStatus" (click)=moveToGdpr()>CONTINUE ...</button>
               </div>
           </div>
       </div>

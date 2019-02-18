@@ -1,3 +1,17 @@
-<p>
-  header works!
-</p>
+<header>
+    <div class=" container-fluid header">
+    	  <div class="row">
+      	    <div class="col-md-3 header-left">
+     	          <img src="../../../assets/images/logo.jpg" alt="logo">
+            </div>
+            <div class="col-md-6 header-center">
+               	{{userDetails.givenName}} {{userDetails.surname}}
+            	<div class="clr"></div>
+            	<span>NUID:</span>   {{userDetails.nuId}} 
+            </div>
+            <div class="col-md-3 header-right">
+      	        <img src="../../../assets/images/logo-left.jpg" alt="logo">
+            </div>
+        </div>
+    </div>
+</header>

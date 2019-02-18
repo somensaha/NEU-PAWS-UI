@@ -1,7 +1,19 @@
-<app-ferpa *ngIf="showFerpa" [checkFerpa]="checkFerpa"></app-ferpa>
-<app-gdpr *ngIf="showGdpr"></app-gdpr>
-<app-privacy *ngIf="showPrivacy"></app-privacy>
-<app-optin *ngIf="showOptin"></app-optin>
+<form [formGroup]='form'>
+
+<app-ferpa   *ngIf="showFerpa"   [checkFerpa]="checkFerpa"  (sendToGdpr)="receiveMoveGdpr($event)"></app-ferpa>
+<app-gdpr    *ngIf="showGdpr"    [checkGdpr]="checkGdpr"    (sendToPrivacy)="receiveMovePrivacy($event)" ></app-gdpr>
+<app-privacy *ngIf="showPrivacy" [checkPrivacy]="checkPrivacy" (sendToOptin)="receiveMoveOptin($event)" ></app-privacy>
+<app-optin   *ngIf="showOptin"  
+			(changeAdv)="changeAdv($event)" 
+			(changeAnb)="changeAnb($event)" 
+			(changeGrd)="changeGrd($event)" 
+			(chageDoc)="chageDoc($event)" 
+			(chandeShl)="chandeShl($event)" 
+			(changeHsn)="changeHsn($event)" 
+			(submitTheForm)="submitData($event)" 
+
+			[checkAdv]="checkAdv" [checkDoc]="checkDoc" [checkAnb]="checkAnb" [checkShl]="checkShl" [checkGrd]="checkGrd" [checkHsn]="checkHsn"  [userDetails]="userDetails" [form]='form' ></app-optin>
+</form>
 
 
 

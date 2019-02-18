@@ -14,13 +14,16 @@ import { FerpaComponent } from './declearations/ferpa/ferpa.component';
 import { GdprComponent } from './declearations/gdpr/gdpr.component';
 import { PrivacyComponent } from './declearations/privacy/privacy.component';
 import { OptinComponent } from './declearations/optin/optin.component';
+import {FormsModule} from '@angular/forms';
+import { FinalinformationComponent } from './finalinformation/finalinformation.component';
+
 
 @NgModule({
-  declarations: [DashboardComponent, LayoutComponent, DeclearationsComponent, HeaderComponent, FooterComponent, FerpaComponent, GdprComponent, PrivacyComponent, OptinComponent],
+  declarations: [DashboardComponent, LayoutComponent, DeclearationsComponent, HeaderComponent, FooterComponent, FerpaComponent, GdprComponent, PrivacyComponent, OptinComponent, FinalinformationComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
-    ReactiveFormsModule, AlertModule.forRoot(),
+    ReactiveFormsModule, AlertModule.forRoot(),FormsModule
   ],
   providers: [
     UserService

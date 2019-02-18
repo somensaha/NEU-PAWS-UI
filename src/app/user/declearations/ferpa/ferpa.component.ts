@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-ferpa',
@@ -6,11 +6,23 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./ferpa.component.css']
 })
 export class FerpaComponent implements OnInit {
-  @Input('checkFerpa') checkFerpa: boolean;
-  constructor() { }
+  @Input('checkFerpa') ferpaStatus: boolean;
+  @Output() sendToGdpr = new EventEmitter<any>();
+  
+
+  constructor( ) { }
 
   ngOnInit() {
-    console.log(this.checkFerpa);
+    
   }
+
+  moveToGdpr(){
+  	this.sendToGdpr.emit(this.ferpaStatus);
+  }
+
+  onFerpaChange(){
+    this.ferpaStatus=!this.ferpaStatus;
+  }
+
 
 }

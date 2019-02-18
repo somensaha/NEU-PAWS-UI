@@ -1,20 +1,9 @@
 
 <!--hrader-->
-<header>
-<div class=" container-fluid header">
-    	<div class="row">
-    	    <div class="col-md-3 header-left">
-   	          <img src="../../../assets/images/logo.jpg" alt="logo">
-          </div>
-          <div class="col-md-6 header-center">
-          </div>
-          <div class="col-md-3 header-right">
-      	      <img src="../../../assets/images/logo-left.jpg" alt="logo">
-          </div>
-      </div>
-</div>
-   <div class="border-part">
-     <app-declearations></app-declearations>
-   </div>
-</header>
+<app-header [userDetails]="userDetails"></app-header>
+    <div class="border-part">
+        <app-declearations></app-declearations>
+    </div>
+<footer ><img src="../../../assets/images/foot.jpg" class="img-responsiv"></footer>
+
 <!--hrader end-->
