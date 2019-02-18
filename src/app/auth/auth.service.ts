@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   userInfo() {
-    const user = atob(JSON.parse(localStorage.getItem('userInfo')));
+    const user = JSON.parse(atob(localStorage.getItem('userInfo')));
     return user;
   }
 }

@@ -7,6 +7,7 @@ import { AlertModel } from '../../shared/alert.model';
 import { ToastrService } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
 import {Router} from '@angular/router';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
     selector:    'app-declearations',
@@ -34,15 +35,19 @@ export class DeclearationsComponent implements OnInit {
   constructor(
       private fb: FormBuilder,
       private userService: UserService,
-      private router: Router
+      private router: Router,
+      private authService: AuthService
   ) {}
 
   ngOnInit() {
+      localStorage.removeItem('userInfo');
+      const user = {emailId: 'michelsen.a@husky.neu.edu', givenName: 'Annaaa', surname: 'Michelsen', nuId: '001692903'};
+      localStorage.setItem('userInfo', btoa(JSON.stringify(user)));
       this.showFerpa = true;
       this.showGdpr = false;
       this.showPrivacy = false;
       this.showOptin = false;
-      this.userDetails = {emailId: 'michelsen.a@husky.neu.edu', givenName: 'Anna', surname: 'Michelsen', nuId: '001692903'};
+      this.userDetails = this.authService.userInfo();
       this.checkFerpa =false;
       this.checkGdpr=false;
       this.checkPrivacy=false;
