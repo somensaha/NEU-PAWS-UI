@@ -21,4 +21,9 @@ export class UserService {
     const url = environment.apiUrl + '/students/getStudentDetails';
     return this.http.post(url, form);
   }
+
+  getStudentDetailsByToken(token: string): Observable<any> {
+    const url = environment.apiUrl + '/students/processStudentData?token=' + token;
+    return this.http.get(url);
+  }
 }

@@ -6,7 +6,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { AlertModel } from '../../shared/alert.model';
 import { ToastrService } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
 
 @Component({
@@ -30,24 +30,27 @@ export class DeclearationsComponent implements OnInit {
     checkGrd: boolean;
     checkHsn: boolean;
     userDetails: UserInfoModel;
-  
+    userToken: string;
 
   constructor(
       private fb: FormBuilder,
       private userService: UserService,
       private router: Router,
-      private authService: AuthService
-  ) {}
+      private authService: AuthService,
+      private route: ActivatedRoute
+  ) {
+      this.route.queryParams.subscribe(params => {
+          this.userToken = params['token'];
+          // this.userToken = 'shibap551u3y4l7';
+          // console.log(this.userToken);
+      });
+  }
 
   ngOnInit() {
-      localStorage.removeItem('userInfo');
-      const user = {emailId: 'michelsen.a@husky.neu.edu', givenName: 'Annaaa', surname: 'Michelsen', nuId: '001692903'};
-      localStorage.setItem('userInfo', btoa(JSON.stringify(user)));
       this.showFerpa = true;
       this.showGdpr = false;
       this.showPrivacy = false;
       this.showOptin = false;
-      this.userDetails = this.authService.userInfo();
       this.checkFerpa =false;
       this.checkGdpr=false;
       this.checkPrivacy=false;
@@ -61,16 +64,28 @@ export class DeclearationsComponent implements OnInit {
       this.createForm();
   }
 
+  // getStudentDetails() {
+  //   this.userService.getStudentDetailsByToken(this.userToken).subscribe(
+  //       (res: any) => {
+  //
+  //       }, (err: any) => {
+  //
+  //       }, () => {
+  //
+  //       }
+  //   )
+  // }
+
   /**
    * Create Reactive Form
    */
   createForm() {
     this.form = this.fb.group({
       studentdetails: new FormGroup({
-        nuId: new FormControl(this.userDetails.nuId, [Validators.required]),
-        emailId: new FormControl(this.userDetails.emailId, [Validators.required]),
-        givenName: new FormControl(this.userDetails.givenName, [Validators.required]),
-        surname: new FormControl(this.userDetails.surname, [Validators.required]),
+        nuId: new FormControl('', [Validators.required]),
+        emailId: new FormControl('', [Validators.required]),
+        givenName: new FormControl('', [Validators.required]),
+        surname: new FormControl('', [Validators.required]),
       }),
       optcatdetails: new FormGroup({
         ferpa: new FormControl(this.checkFerpa, [Validators.required]),
@@ -91,11 +106,7 @@ export class DeclearationsComponent implements OnInit {
    * Fetch user details
    */
   getCategoriesByMailId() {
-    const userfetch = {
-      mailId: this.userDetails.emailId,
-      type: 'studentCatDetails'
-    };
-    this.userService.getCategoriesByMailId(userfetch).subscribe(
+    this.userService.getStudentDetailsByToken(this.userToken).subscribe(
       (res: any) => {
         if (res.status === 200) {
               this.checkFerpa=res.respData.ferpa;
@@ -107,8 +118,18 @@ export class DeclearationsComponent implements OnInit {
               this.checkShl =res.respData.shl;
               this.checkGrd =res.respData.grd;
               this.checkHsn =res.respData.hsn;
-              
-              const optCat = this.form.get('optcatdetails') as FormGroup;
+
+              const userDet = this.form.get('studentdetails') as FormGroup;
+                userDet.controls['nuId'].setValue(res.respData.nuId);
+                userDet.controls['emailId'].setValue(res.respData.email);
+                userDet.controls['givenName'].setValue(res.respData.givenName);
+                userDet.controls['surname'].setValue(res.respData.surName);
+
+                this.userDetails = {emailId: res.respData.email, givenName: res.respData.givenName, surname: res.respData.surName, nuId: res.respData.nuId};
+                localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
+
+
+            const optCat = this.form.get('optcatdetails') as FormGroup;
               optCat.controls['doc'].setValue(this.checkDoc);
               optCat.controls['shl'].setValue(this.checkShl);
               optCat.controls['anb'].setValue(this.checkAnb);
@@ -123,7 +144,7 @@ export class DeclearationsComponent implements OnInit {
       }, (err: any) => {
 
       }, () => {
-          
+          console.log('form', this.form.value);
 
       });
   }
