@@ -48,44 +48,44 @@ export class DeclearationsComponent implements OnInit {
                   progressBar: true,
               })});
               this.router.navigate(['/']);
-          }
+          } else {
+              this.userService.getStudentDetailsByToken(this.userToken).subscribe(
+                  (res: any) => {
+                      if (res.respData.email === null || res.respData.nuId === null) {
+                          setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
+                              timeOut: 6000,
+                              progressBar: true,
+                          })});
+                          this.router.navigate(['/']);
+                      }
+                      this.respData = res.respData;
+                      this.userDetails = {emailId: res.respData.email, givenName: res.respData.givenName, surname: res.respData.surName, nuId: res.respData.nuId};
+                      localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
+                      this.showFerpa = true;
+                      this.showGdpr = false;
+                      this.showPrivacy = false;
+                      this.showOptin = false;
+                      this.checkFerpa = this.respData.ferpa;
+                      this.checkGdpr = this.respData.gdpr;
+                      this.checkPrivacy = this.respData.privacy;
+                      this.checkAdv = this.respData.adv;
+                      this.checkDoc = this.respData.doc;
+                      this.checkAnb = this.respData.anb;
+                      this.checkShl = this.respData.shl;
+                      this.checkGrd = this.respData.grd;
+                      this.checkHsn = this.respData.hsn;
 
-          this.userService.getStudentDetailsByToken(this.userToken).subscribe(
-              (res: any) => {
-                  if (res.respData.email === null || res.respData.nuId === null) {
+                      this.createForm();
+
+                  }, (err: any) => {
                       setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
                           timeOut: 6000,
                           progressBar: true,
                       })});
                       this.router.navigate(['/']);
                   }
-                  this.respData = res.respData;
-                  this.userDetails = {emailId: res.respData.email, givenName: res.respData.givenName, surname: res.respData.surName, nuId: res.respData.nuId};
-                  localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
-                  this.showFerpa = true;
-                  this.showGdpr = false;
-                  this.showPrivacy = false;
-                  this.showOptin = false;
-                  this.checkFerpa = this.respData.ferpa;
-                  this.checkGdpr = this.respData.gdpr;
-                  this.checkPrivacy = this.respData.privacy;
-                  this.checkAdv = this.respData.adv;
-                  this.checkDoc = this.respData.doc;
-                  this.checkAnb = this.respData.anb;
-                  this.checkShl = this.respData.shl;
-                  this.checkGrd = this.respData.grd;
-                  this.checkHsn = this.respData.hsn;
-
-                  this.createForm();
-
-              }, (err: any) => {
-                  setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
-                      timeOut: 6000,
-                      progressBar: true,
-                  })});
-                  this.router.navigate(['/']);
-              }
-          );
+              );
+          }
       });
   }
 
