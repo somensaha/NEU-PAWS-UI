@@ -4,6 +4,7 @@ import { UserInfoModel } from 'src/app/shared/userInfo.model';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {ActivatedRoute, Route, Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector:    'app-declearations',
@@ -35,17 +36,29 @@ export class DeclearationsComponent implements OnInit {
       private userService: UserService,
       private router: Router,
       private authService: AuthService,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      private toastr: ToastrService
   ) {
       this.route.queryParams.subscribe(params => {
           this.userToken = params['token'];
           // this.userToken = 'shibap551u3y4l7';
           if (this.userToken === undefined) {
+              setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
+                  timeOut: 6000,
+                  progressBar: true,
+              })});
               this.router.navigate(['/']);
           }
 
           this.userService.getStudentDetailsByToken(this.userToken).subscribe(
               (res: any) => {
+                  if (res.respData.email === null || res.respData.nuId === null) {
+                      setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
+                          timeOut: 6000,
+                          progressBar: true,
+                      })});
+                      this.router.navigate(['/']);
+                  }
                   this.respData = res.respData;
                   this.userDetails = {emailId: res.respData.email, givenName: res.respData.givenName, surname: res.respData.surName, nuId: res.respData.nuId};
                   localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
@@ -66,6 +79,10 @@ export class DeclearationsComponent implements OnInit {
                   this.createForm();
 
               }, (err: any) => {
+                  setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
+                      timeOut: 6000,
+                      progressBar: true,
+                  })});
                   this.router.navigate(['/']);
               }
           );
