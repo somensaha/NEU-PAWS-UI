@@ -1,13 +1,23 @@
-
-<app-header [userDetails]="userDetails"></app-header>
-<div class="border-part">
-</div>
-
+<header>
+    <div class=" container-fluid header">
+        <div class="row">
+            <div class="col-md-3 header-left">
+                <img src="../../../assets/images/logo.jpg" alt="logo">
+            </div>
+            <div class="col-md-6 header-center">
+                {{userDetails?.givenName}} {{userDetails?.surname}}
+                <div class="clr"></div>
+                <span>NUID:</span>   {{userDetails?.nuId}}
+            </div>
+            <div class="col-md-3 header-right">
+                <img src="../../../assets/images/logo-left.jpg" alt="logo">
+            </div>
+        </div>
+    </div>
+</header>
 <section class="container-fluid">
     <div class="body-part ">
         <div class="row">
-
-
             <div class="col-md-8 offset-2">
                 <div class="awesom">
                     <h2>Awesome {{userDetails.givenName}}!</h2>
@@ -20,5 +30,4 @@
         </div>
     </div>
 </section>
-
 <footer ><img src="../../../assets/images/foot.jpg" class="img-responsiv"></footer>
