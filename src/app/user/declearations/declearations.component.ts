@@ -51,7 +51,7 @@ export class DeclearationsComponent implements OnInit {
           } else {
               this.userService.getStudentDetailsByToken(this.userToken).subscribe(
                   (res: any) => {
-                      if (res.respData.email === null || res.respData.nuId === null) {
+                      if (res.respData.email === null || res.respData.nuId === null || res.respData.email === '' || res.respData.nuId === '') {
                           setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
                               timeOut: 6000,
                               progressBar: true,

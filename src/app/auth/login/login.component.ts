@@ -49,7 +49,8 @@ export class LoginComponent implements OnInit {
   }
 
   ssoLogin() {
-    const token = 'shib' + Math.random().toString(36).substr(2);
+    // const token = 'shib' + Math.random().toString(36).substr(2);
+    const token = 'shib' + new Date().getTime();
     const targetURL = environment.rootURL + 'signin_callback?token=' + token;
     const redirectUrl = environment.rootURL + 'Shibboleth.sso/Login?target=' + targetURL;
     console.log('redirect url', redirectUrl);
