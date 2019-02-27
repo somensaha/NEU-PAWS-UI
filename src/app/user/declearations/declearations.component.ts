@@ -61,7 +61,7 @@ export class DeclearationsComponent implements OnInit {
                     progressBar: true,
                   });
                 });
-                window.open('https://neuidmssotest.neu.edu/idp/profile/Logout', '_blank');
+                // window.open('https://neuidmssotest.neu.edu/idp/profile/Logout', '_blank');
                 this.router.navigate(['/']);
               }
               this.respData = res.respData;

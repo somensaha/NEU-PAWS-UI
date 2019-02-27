@@ -21,6 +21,7 @@ import {
 } from 'angular-6-social-login';
 import { CallbackComponent } from './auth/callback/callback.component';
 
+
 // Configs
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -47,7 +48,7 @@ export function getAuthServiceConfigs() {
     LoginComponent,
     RegistrationComponent,
     PageNotFoundComponent,
-    CallbackComponent
+    CallbackComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
