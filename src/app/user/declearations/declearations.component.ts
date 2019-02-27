@@ -62,7 +62,7 @@ export class DeclearationsComponent implements OnInit {
                   });
                 });
                 // window.open('https://neuidmssotest.neu.edu/idp/profile/Logout', '_blank');
-                this.router.navigate(['/']);
+                this.router.navigate(['/user/signout']);
               }
               this.respData = res.respData;
               this.userDetails = {
