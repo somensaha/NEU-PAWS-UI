@@ -1,101 +1,115 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserService } from '../shared/user.service';
-import { UserInfoModel } from 'src/app/shared/userInfo.model';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {UserService} from '../shared/user.service';
+import {UserInfoModel} from 'src/app/shared/userInfo.model';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Route, Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
-    selector:    'app-declearations',
-    templateUrl: './declearations.component.html',
-    styleUrls:   ['./declearations.component.css']
+  selector: 'app-declearations',
+  templateUrl: './declearations.component.html',
+  styleUrls: ['./declearations.component.css']
 })
 export class DeclearationsComponent implements OnInit {
-    form: FormGroup;
-    showFerpa: boolean;
-    showGdpr: boolean;
-    showPrivacy: boolean;
-    showOptin: boolean;
-    checkFerpa: boolean;
-    checkGdpr: boolean;
-    checkPrivacy: boolean;
-    checkAdv: boolean;
-    checkDoc: boolean;
-    checkAnb: boolean;
-    checkShl: boolean;
-    checkGrd: boolean;
-    checkHsn: boolean;
-    userDetails: UserInfoModel;
-    userToken: string;
+  form: FormGroup;
+  showFerpa: boolean;
+  showGdpr: boolean;
+  showPrivacy: boolean;
+  showOptin: boolean;
+  checkFerpa: boolean;
+  checkGdpr: boolean;
+  checkPrivacy: boolean;
+  checkAdv: boolean;
+  checkDoc: boolean;
+  checkAnb: boolean;
+  checkShl: boolean;
+  checkGrd: boolean;
+  checkHsn: boolean;
+  userDetails: UserInfoModel;
+  userToken: string;
 
-    respData: any;
+  respData: any;
 
   constructor(
-      private fb: FormBuilder,
-      private userService: UserService,
-      private router: Router,
-      private authService: AuthService,
-      private route: ActivatedRoute,
-      private toastr: ToastrService
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private authService: AuthService,
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {
-      this.route.queryParams.subscribe(params => {
-          this.userToken = params['token'];
-          // this.userToken = 'shibap551u3y4l7';
-          if (this.userToken === undefined) {
-              setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
+    this.route.queryParams.subscribe(params => {
+      this.userToken = params['token'];
+      // this.userToken = 'shibap551u3y4l7';
+      if (this.userToken === undefined) {
+        setTimeout(() => {
+          this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
+            timeOut: 6000,
+            progressBar: true,
+          });
+        });
+        this.router.navigate(['/']);
+      } else {
+        this.userService.getStudentDetailsByToken(this.userToken).subscribe(
+          (res: any) => {
+            if (res.status === 200) {
+              if (res.respData.email === null || res.respData.nuId === null || res.respData.email === '' || res.respData.nuId === '') {
+                setTimeout(() => {
+                  this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
+                    timeOut: 6000,
+                    progressBar: true,
+                  });
+                });
+                window.open('https://neuidmssotest.neu.edu/idp/profile/Logout', '_blank');
+                this.router.navigate(['/']);
+              }
+              this.respData = res.respData;
+              this.userDetails = {
+                emailId: res.respData.email,
+                givenName: res.respData.givenName,
+                surname: res.respData.surName,
+                nuId: res.respData.nuId
+              };
+              localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
+              this.showFerpa = true;
+              this.showGdpr = false;
+              this.showPrivacy = false;
+              this.showOptin = false;
+              this.checkFerpa = this.respData.ferpa;
+              this.checkGdpr = this.respData.gdpr;
+              this.checkPrivacy = this.respData.privacy;
+              this.checkAdv = this.respData.adv;
+              this.checkDoc = this.respData.doc;
+              this.checkAnb = this.respData.anb;
+              this.checkShl = this.respData.shl;
+              this.checkGrd = this.respData.grd;
+              this.checkHsn = this.respData.hsn;
+
+              this.createForm();
+            } else {
+              setTimeout(() => {
+                this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
                   timeOut: 6000,
                   progressBar: true,
-              })});
+                });
+              });
               this.router.navigate(['/']);
-          } else {
-              this.userService.getStudentDetailsByToken(this.userToken).subscribe(
-                  (res: any) => {
-                      if (res.status === 200) {
-                          if (res.respData.email === null || res.respData.nuId === null || res.respData.email === '' || res.respData.nuId === '') {
-                              setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
-                                  timeOut: 6000,
-                                  progressBar: true,
-                              })});
-                              this.router.navigate(['/']);
-                          }
-                          this.respData = res.respData;
-                          this.userDetails = {emailId: res.respData.email, givenName: res.respData.givenName, surname: res.respData.surName, nuId: res.respData.nuId};
-                          localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
-                          this.showFerpa = true;
-                          this.showGdpr = false;
-                          this.showPrivacy = false;
-                          this.showOptin = false;
-                          this.checkFerpa = this.respData.ferpa;
-                          this.checkGdpr = this.respData.gdpr;
-                          this.checkPrivacy = this.respData.privacy;
-                          this.checkAdv = this.respData.adv;
-                          this.checkDoc = this.respData.doc;
-                          this.checkAnb = this.respData.anb;
-                          this.checkShl = this.respData.shl;
-                          this.checkGrd = this.respData.grd;
-                          this.checkHsn = this.respData.hsn;
-
-                          this.createForm();
-                      } else {
-                          setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
-                              timeOut: 6000,
-                              progressBar: true,
-                          })});
-                          this.router.navigate(['/']);
-                      }
+            }
 
 
-                  }, (err: any) => {
-                      setTimeout(() => {this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated',  {
-                          timeOut: 6000,
-                          progressBar: true,
-                      })});
-                      this.router.navigate(['/']);
-                  }
-              );
+          }, (err: any) => {
+            setTimeout(() => {
+              this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
+                timeOut: 6000,
+                progressBar: true,
+              });
+            });
+            this.router.navigate(['/']);
           }
-      });
+        );
+      }
+    });
   }
 
   ngOnInit() {
@@ -189,17 +203,16 @@ export class DeclearationsComponent implements OnInit {
   }
 
   submitData($event) {
-      console.log(this.form.value);
-      this.userService.updateCategories(this.form.value).subscribe(
-          (res: any) => {
-              if (res.status === 200) {
-                  this.router.navigate(['/user/information']);
-              }
-          }, (err: any) => {
+    console.log(this.form.value);
+    this.userService.updateCategories(this.form.value).subscribe(
+      (res: any) => {
+        if (res.status === 200) {
+          this.router.navigate(['/user/information']);
+        }
+      }, (err: any) => {
 
-          });
+      });
   }
-
 
 
 }
