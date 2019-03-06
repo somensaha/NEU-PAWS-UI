@@ -1,97 +1,125 @@
-<section class="container-fluid">
-	<div class="body-part">
-    	<div class="row">
-        	<div class="col-md-6">
-            	<div class="col-md-11">
-                    <strong style="font-size: 16px;">Privacy FAQ for Husky Helper</strong><br>
-                    <strong>What is Husky Helper?</strong>
-                    <p>
-                        Husky Helper is a skill on the Amazon Alexa digital assistant platform that entails building a personalized experience for all students, accessible by both voice and chatbot on your phone, personal computer or other personal devices.  Students who opt in and consent will have the ability to link their Northeastern account to n-Powered’s platform so that the Husky Husky skill will be able to identify who is seeking information and provide a personalized response for each student.  Accessible information will include a student’s individual class schedule, account profile information, husky card balance, student account balance, housing assignments and others.
-                    </p>
-                    <strong>How is data accessed?</strong>
-                    <p>
-                        To enable the skill to work, n-Powered will store your name, NUID, and advisor information which will help Northeastern and n-Powered identify you and provide answers to many of your questions. Sensitive personal information such as social security numbers, passport numbers, or other personally identifiable information will not be transferred or stored anywhere other than in Northeastern’s secure server.
-                    </p>
-                    <p>
-                        All data transmitted from Northeastern Servers will be encrypted with the highest level of security.
-                    </p>
-                    <strong>Where does Amazon fit in?</strong>
-                    <p>
-                        We use Amazon’s platform to make this work. Amazon stores information about usage that can be purged upon request. According to Amazon’s website, AWS services are GDPR-Ready. You can read more about this in the links below. If you have any concerns about this, please contact privacy@northeastern.edu.
-                    </p>
-                    <ul>
-                        <li>
-                            <a href="https://aws.amazon.com/privacy/">https://aws.amazon.com/privacy/</a>
-                        </li>
-                        <li>
-                            <a href="https://aws.amazon.com/alexaforbusiness/faqs/#Privacy_and_data_security">https://aws.amazon.com/alexaforbusiness/faqs/#Privacy_and_data_security</a>
-                        </li>
-                        <li>
-                            <a href="https://aws.amazon.com/compliance/gdpr-center/">https://aws.amazon.com/compliance/gdpr-center/</a>
-                        </li>
-                    </ul>
-                    <strong>How does Husky Helper use your data?</strong>
-                    <p>
-                        This data is going to be used to provide you with personalized information when you need it via smart phones and other personal devices.
-                    </p>
-                    <p>
-                        This data is never going to be sold, distributed, or shared with a third party other than the purpose stated above.
-                    </p>
-                    <strong>What can you do to protect your data?</strong>
-                    <p>
-                        Security is a shared responsibility. While NU and n-Powered will do our part to keep your data secure while it’s in our care, users should be aware of their surroundings when configuring their Husky Helper settings. Once you have opted in and authenticated to Husky Helper, your information will be ready and available for use. This also means that anyone else with access to your device will be able to ask your smart speaker questions about YOU. This may expose your personal information inadvertently.
-                    </p>
-                    <p>
-                        Please use caution when linking Husky Helper to devices that may be available to individuals other than yourself.
-                    </p>
-                    <strong>
-                        “How do I opt in”
-                    </strong>
-                    <p>
-                        We will provide options for you to opt in to only the categories of data that you consent to make available to the NPowered platform for use within the HHII app.
-                    </p>
+jjdgsahjgshjsaghdasgha
 
-              </div>
-          </div>
-          <div class="col-md-6">
-              <div class="col-md-11">
-                  <strong>“How do I opt out”</strong>
-                  <p>
-                      You can update your preferences at any time by going to the HHII app (website). You will have the option of opting out of this entire application at any time by [doing something very simple, like selecting
-                      the opt-out button]. Please note that if you opt out, all data will be removed.
-                  </p>
-                  <p>
-                      If you have any questions, please contact the Office of Information Security at <a href="privacy@northeastern.edu.">privacy@northeastern.edu.</a>
-                  </p>
-                  <strong>How do I get more information about NU’s privacy practices?</strong>
-                  <p>NU’s privacy statement is available online at <a href="https://www.northeastern.edu/privacy-information">https://www.northeastern.edu/privacy-information</a></p>
-       	    	  <strong>Consent/Opt-in</strong>
-                  <p>
-                      Yes, I have read the FAQ’s and want to participate in Husky Helper Phase II to be able to get personalized answers to my Northeastern-related questions on my smart phone or other personal device. I understand and acknowledge that in order for me to get personalized responses, the Husky Helper II App will draw information from secure NU servers, and I expressly consent to making my personal data, as indicated below, available to the HHII App on the N-Powered platform. I understand that my information may be transmitted in an encrypted for but that no other personal information will be stored except as noted above. I agree to indicate which specific data I am willing to have the HHII app access, and I understand that I can opt out of the entire application at any time by selecting the opt out button. I understand that I will have the option of removing my data from the app.
-                  </p>
-                  <strong>Proposed language to add to NU Privacy Notice</strong>
-                  <p>Add to bulleted list of “How We Use Your Information”:</p>
-                  <ul>
-                      <li>
-                          If you download and opt in to the Husky Helper App, your personal data from NU’s secure servers will be made available on the N-powered platform for the purpose of personalizing answers to your questions, such as about individual class schedule, account profile information, husky card balance, student account balance, housing assignments, and academic advisor. See HHII webpage?
-                      </li>
-                  </ul>
-                  <div class=" clr"></div>
-                  <ul class="list-box">
-                      <li>
-                          <div>
-                              <input type="checkbox" class="box" [ngModel]="privacyStatus"  (ngModelChange)="onPrivacyChange()">
-                              By checking this box I agree to the terms and condition and understand my rights under privacy statement.
-                          </div>
-                      </li>
-                  </ul>
-                  <div class=" clr"></div>
 
-                  <button class="btn con-btn" [disabled]="!privacyStatus" (click)=moveToOptin()>CONTINUE ...</button>
-              </div>
+
+<section class="MainContent">
+  <picture class="MainContentHeaderBackground">
+    <source type="image/webp" data-sizes="auto"
+            data-srcset="
+          assets/images/responsive/placeholder-180px.webp 180w,
+          assets/images/responsive/placeholder-360px.webp 360w,
+          assets/images/responsive/placeholder-570px.webp 570w,
+          assets/images/responsive/placeholder-720px.webp 720w,
+          assets/images/responsive/placeholder-1140px.webp 1140w,
+          assets/images/responsive/placeholder-1440px.webp 1440w,
+          assets/images/responsive/placeholder-2280px.webp 2280w,
+          assets/images/responsive/placeholder-2880px.webp 2880w"/>
+    <img src="assets/images/placeholder.svg"
+         data-srcset="
+          assets/images/responsive/placeholder-180px.jpeg 180w,
+          assets/images/responsive/placeholder-360px.jpeg 360w,
+          assets/images/responsive/placeholder-570px.jpeg 570w,
+          assets/images/responsive/placeholder-720px.jpeg 720w,
+          assets/images/responsive/placeholder-1140px.jpeg 1140w,
+          assets/images/responsive/placeholder-1440px.jpeg 1440w,
+          assets/images/responsive/placeholder-2280px.jpeg 2280w,
+          assets/images/responsive/placeholder-2880px.jpeg 2880w" class="lazyload blur-up" data-sizes="auto"
+         alt="Paws Header Image Displaying Amazon Echo Dot"/></picture>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-10 col-md-10 col-lg-8 offset-sm-1 offset-md-1 offset-lg-2 ColOverlap ShadowBox">
+        <h1 class="PawsGap BorderBottom">Privacy<img class="PawsConcept" src="assets/svg/paws-concept.svg" alt="Paws"/>
+        </h1>
+        <div class="LegalWrap ShadowBox">
+          <div class="LegalWrapInner">
+            <h3>Privacy Statement</h3>
+            <h4>What is Paws?</h4>
+            <p> Paws is a skill on the Amazon Alexa digital assistant platform that entails building a personalized
+              experience for all students, accessible by both voice and chatbot on your phone, personal computer or
+              other personal devices. Students who opt in and consent will have the ability to link their Northeastern
+              account to n-Powered’s platform so that Paws will be able to identify who is seeking information and
+              provide a personalized response for each student. Should you opt in, accessible information will include a
+              student’s individual class schedule, account profile information, Husky Card balance, student account
+              balance, housing assignments and others. </p>
+            <h4>How is data accessed?</h4>
+            <p> To enable the skill to work, n-Powered will store your name, NUID, and advisor information which will
+              help Northeastern and n-Powered identify you and provide answers to many of your questions. Sensitive
+              personal information such as social security numbers, passport numbers, or other personally identifiable
+              information will not be transferred or stored anywhere other than in Northeastern’s secure server. </p>
+            <p> All data transmitted from Northeastern Servers will be encrypted with the highest level of
+              security. </p>
+            <h4>Where does Amazon fit in?</h4>
+            <p> We use Amazon’s platform to make this work. Amazon stores information about usage that can be purged
+              upon request. According to Amazon’s website, Amazon Web Services (AWS) are GDPR-ready. You can read more
+              about this in the links below. If you have any concerns about this, please contact <a
+                href="mailto:privacy@northeastern.edu">privacy@northeastern.edu</a>. </p>
+            <ul>
+              <li><a href="https://aws.amazon.com/privacy/" target="_blank">https://aws.amazon.com/privacy/</a></li>
+              <li><a href="https://aws.amazon.com/alexaforbusiness/faqs/#Privacy_and_data_security" target="_blank">https://aws.amazon.com/alexaforbusiness/faqs/#Privacy_and_data_security</a>
+              </li>
+              <li><a href="https://aws.amazon.com/compliance/gdpr-center/" target="_blank">https://aws.amazon.com/compliance/gdpr-center/</a>
+              </li>
+            </ul>
+            <h4>How does Husky Helper use your data?</h4>
+            <p> This data is going to be used to provide you with personalized information when you need it via smart
+              phones and other personal devices. </p>
+            <p> This data is never going to be sold, distributed, or shared with a third party other than the purpose
+              stated above. </p>
+            <h4>What can you do to protect your data?</h4>
+            <p> Security is a shared responsibility. While Northeastern and n-Powered will do our part to keep your data
+              secure while it’s in our care, users should be aware of their surroundings when configuring their Paws
+              settings, and using the skill. Once you have opted in and authenticated to Paws, your information will be
+              ready and available for use, and verbal responses may be overheard. This also means that anyone else with
+              access to your device will be able to ask your smart speaker questions about YOU. This may expose your
+              personal information inadvertently. Please use caution when linking Paws to devices that may be available
+              to individuals other than yourself. </p>
+            <h4>“How do I opt in”</h4>
+            <p> We will provide options for you to opt in to only the categories of data that you consent to make
+              available to the n-Powered platform for use within Paws. </p>
+            <h4>“How do I opt out”</h4>
+            <p> You can update your preferences at any time by going to <a href="http://pawsatnu.com">n-Powered’s Paws
+              website</a>. You will have the option of opting out of this entire application at any time by going back
+              to the opt-in page and selecting the check-box that reads “Opt-out of all”. Please note that if you
+              opt-out, all your data will be removed from this platform. </p>
+            <p> If you have any questions, please contact the Office of Information Security at <a
+              href="mailto:privacy@northeastern.edu">privacy@northeastern.edu</a>. </p>
+            <h4>How do I get more information about Northeastern University’s privacy practices?</h4>
+            <p> Northesastern University’s privacy statement is available online at <a
+              href="https://www.northeastern.edu/privacy-information" target="_blank">https://www.northeastern.edu/privacy-information</a>
+            </p>
           </div>
+          <div class="ScrollDowns">
+            <div class="Mousey">
+              <div class="Scroller"></div>
+            </div>
+          </div>
+        </div>
+        <h4>Consent/Opt-in</h4>
+        <p></p>
+        Yes, I have read the FAQs and want to participate in Paws to be able to get personalized answers to my
+        Northeastern-related questions on my smart phone or other personal device. I understand and acknowledge that in
+        order for me to get personalized responses, Paws will draw information from secure Northeastern servers, and I
+        expressly consent to making my personal data, as indicated later in this registration, available to Paws on the
+        n-Powered platform. I acknowledge that some of the data that I can consent to having made available to the
+        n-Powered platform is considered FERPA-protected data. I understand that my information may be transmitted in an
+        encrypted form but that no other personal information will be stored except as noted above. I agree to indicate
+        which specific data I am willing to have Paws access, and I understand that I can change the categories of
+        information I have consented to make available at any time or opt out of the entire application at any time, by
+        selecting the opt out button. I understand that I will have the option of removing my data from the platform.
+
+        <div class="CenterWrap ConsentWrap">
+          <input class="StyleishCheckbox" id="Consent1" required="required" type="checkbox" value="agree"/>
+          <label for="Consent1">By checking this box I agree to the terms and condition and understand my rights under
+            this privacy statement.</label>
+        </div>
+        <button class="ObjectCentered" type="submit" name="Login" data-link="./skill-data-opt-in.html">Continue</button>
       </div>
+      <!-- /col-12 col-sm-10 col-md-10 col-lg-8 offset-sm-1 offset-md-1 offset-lg-2 ColOverlap ShadowBox -->
+
+    </div>
+    <!-- /row -->
+
   </div>
+  <!-- /container -->
+
 </section>
-
-

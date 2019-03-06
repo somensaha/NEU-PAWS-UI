@@ -1,149 +1,90 @@
-<header>
-  <div class=" container-fluid header">
+<section class="MainContent">
+  <picture class="MainContentHeaderBackground">
+    <source type="image/webp" data-sizes="auto"
+        data-srcset="
+          assets/images/responsive/placeholder-180px.webp 180w,
+          assets/images/responsive/placeholder-360px.webp 360w,
+          assets/images/responsive/placeholder-570px.webp 570w,
+          assets/images/responsive/placeholder-720px.webp 720w,
+          assets/images/responsive/placeholder-1140px.webp 1140w,
+          assets/images/responsive/placeholder-1440px.webp 1440w,
+          assets/images/responsive/placeholder-2280px.webp 2280w,
+          assets/images/responsive/placeholder-2880px.webp 2880w" />
+    <img src="assets/images/responsive/placeholder.svg"
+        data-srcset="
+          assets/images/responsive/placeholder-180px.jpeg 180w,
+          assets/images/responsive/placeholder-360px.jpeg 360w,
+          assets/images/responsive/placeholder-570px.jpeg 570w,
+          assets/images/responsive/placeholder-720px.jpeg 720w,
+          assets/images/responsive/placeholder-1140px.jpeg 1140w,
+          assets/images/responsive/placeholder-1440px.jpeg 1440w,
+          assets/images/responsive/placeholder-2280px.jpeg 2280w,
+          assets/images/responsive/placeholder-2880px.jpeg 2880w" class="lazyload blur-up" data-sizes="auto" alt="Paws Header Image Displaying Amazon Echo Dot" /> </picture>
+  <div class="container">
     <div class="row">
-      <div class="col-md-3 header-left">
-        <img src="../../../assets/images/logo.jpg" alt="logo">
-      </div>
-      <div class="col-md-6 header-center">
-        {{userDetails?.givenName}} {{userDetails?.surname}}
-        <div class="clr"></div>
-        <span>NUID:</span>   {{userDetails?.nuId}}
-      </div>
-      <div class="col-md-3 header-right">
-        <img src="../../../assets/images/logo-left.jpg" alt="logo">
-      </div>
-    </div>
-  </div>
-</header>
-<section class="container-fluid">
-  <div class="body-part ">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h2>High Five, {{userDetails.givenName}}!</h2>
-          <br>
-          <p>You are now registered to use the Paws digital personal assistant for Northeastern students and have
-            consented
-            to having your information shared with the Amazon platform. There are a couple more steps to get started
-            with
-            Paws.</p>
-
-          <p>Which device type will you use with Paws?</p>
-          <br>
-          <br>
-          <h4>Smartphone</h4>
-          <p>An iOS or Android mobile device, using the Amazon Alexa app</p>
-
-          <br>
-          <br>
-          <h4>Amazon Device</h4>
-          <p>An Echo, Echo Dot, smart speaker, etc.</p>
-
-          <br>
-          <br>
-          <h3>Smartphone</h3>
-
-
-          <p>So, you want to take Paws with you on the go on your mobile device? Great, we can help you set that up!</p>
-
-
-          <p>If you don’t already have the Amazon Alexa application installed on your device, go ahead and do that now.
-            You’ll need the app to use Paws on your phone. Go to the app store on your mobile device and search “Alexa
-            app.” Visit Amazon to learn more about <a
-              href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fhelp%2Fcustomer%2Fdisplay.html%3FnodeId%3D201549940&amp;data=02%7C01%7Cl.casey%40northeastern.edu%7Caeda8ba99014429cdaa308d69cf703ee%7Ca8eec281aaa34daeac9b9a398b9215e7%7C0%7C0%7C636868982092501197&amp;sdata=lL2oPYEeA6TSbaqtZhhWLVzU0lzwqZMH5h%2F7u1DfqHM%3D&amp;reserved=0"
-              rel="noreferrer" target="_blank"
-              data-saferedirecturl="https://www.google.com/url?q=https://na01.safelinks.protection.outlook.com/?url%3Dhttps%253A%252F%252Fwww.amazon.com%252Fgp%252Fhelp%252Fcustomer%252Fdisplay.html%253FnodeId%253D201549940%26data%3D02%257C01%257Cl.casey%2540northeastern.edu%257Caeda8ba99014429cdaa308d69cf703ee%257Ca8eec281aaa34daeac9b9a398b9215e7%257C0%257C0%257C636868982092501197%26sdata%3DlL2oPYEeA6TSbaqtZhhWLVzU0lzwqZMH5h%252F7u1DfqHM%253D%26reserved%3D0&amp;source=gmail&amp;ust=1551417289757000&amp;usg=AFQjCNEw33oTC3mJvXMJG1Fz1pMKohMa-Q"><span
-              style="color:#954f72;text-decoration: underline;">Amazon Alexa App Basics</span></a></p>
-
-
-          <p><span style="color:black;font-weight: bold;">Already have an Amazon account?</span> Perfect! Skip ahead to
-            the section for
-            “Existing Amazon Users” to get started
-            with Paws. Otherwise, start at the beginning to setup your Amazon account.</p>
-          <br>
-          <h4>New Amazon Users</h4>
-
-          Follow these steps to setup a new Amazon account in the Amazon Alexa app.
-
-
-          <ol> 1. <span style="font-size:12.0pt"><b>Open</b></span> the app and <b>click</b> “Create a new Amazon
-            Account” to
-            setup a new Amazon account.
-          </ol>
-          <br>
-          <ol> 2. <span style="font-size:12.0pt"><b>Complete</b><span>&nbsp;</span></span> the
-            registration field (ie: name, mobile number, password) and <b>click</b> “Submit.”
-          </ol>
-          <br>
-          <ol>(Note: For easier setup, we recommend creating the account with your Husky email address. If you choose
-            not
-            to, no problem, but using Paws will just require an additional step to link it with your Husky email. More
-            on
-            that below.)
-          </ol>
-          <br>
-
-          <br>
-          <ol>3.<span style="font-size:12.0pt"><b>Enter</b></span> the OTP that is sent to your mobile number, then <b>click</b>
-            “Verify.”
-          </ol>
-
-          <br>
-          <ol>4. <span style="font-size:12.0pt"><b>Follow</b></span> the prompts from Amazon to setup the application on
-            your device.
-          </ol>
-          <br>
-
-          <h3>Existing Amazon Users</h3>
-          <br>
-          <ol>1. <span style="font-size:12.0pt"><b>Open</b></span> the app and <b>navigate</b> to “Skills & Games” in
-            the side menu
-          </ol>
-          <br>
-          <ol>2.<span style="font-size:12.0pt"><b>Click</b></span> the magnifying glass in upper-right and <b>search</b>
-            for “Paws”
-          </ol>
-          <br>
-          <ol>3.<span style="font-size:12.0pt"><b>Download</b></span> and <b>enable</b> Paws skill</ol>
-
-          <br>
-          <h3><span style="font-size:16.0pt;color:#2f5496">Congratulations, you can now use Amazon Alexa to</span></h3>
-
-
-          For more information on Paws and examples of what you can ask, visit <b><a
-          href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fpaws.northeastern.edu%2F&amp;data=02%7C01%7Cl.casey%40northeastern.edu%7Caeda8ba99014429cdaa308d69cf703ee%7Ca8eec281aaa34daeac9b9a398b9215e7%7C0%7C0%7C636868982092511202&amp;sdata=ch7TCWd7ytK%2BurHzcsOlwKxeb3mnKJP53Wvvz%2FVAVcA%3D&amp;reserved=0"
-          rel="noreferrer" target="_blank"
-          data-saferedirecturl="https://www.google.com/url?q=https://na01.safelinks.protection.outlook.com/?url%3Dhttp%253A%252F%252Fpaws.northeastern.edu%252F%26data%3D02%257C01%257Cl.casey%2540northeastern.edu%257Caeda8ba99014429cdaa308d69cf703ee%257Ca8eec281aaa34daeac9b9a398b9215e7%257C0%257C0%257C636868982092511202%26sdata%3Dch7TCWd7ytK%252BurHzcsOlwKxeb3mnKJP53Wvvz%252FVAVcA%253D%26reserved%3D0&amp;source=gmail&amp;ust=1551417289757000&amp;usg=AFQjCNE0JNzRbK9bcKDXNoshF1OMAe2usQ"><span
-          style="color:#954f72;text-decoration: underline;">paws.northeastern.edu</span></a></b>
-          <br>
-
-
-          <h3>Link Paws to Your Husky Account</h3>
-          <p>
-            If your Amazon account email is not the same as your Northeastern Husky email address, and you would like to
-            access your personal information through Paws, you’ll have to link those two accounts. Follow these last few
-            steps to link them.</p>
-
-
-          <ol>1. Within the Paws skill, <b>select</b> “Settings”</ol>
-          <br>
-
-          <ol>2. <b>Select</b> “Link Account”</ol>
-          <br>
-
-          <ol>3. <b>Type</b> and <b>submit</b> your Husky email address to sign in</ol>
-          <br>
-
-          <ol>4. <b>Enter</b> your myNortheastern username and password</ol>
-          <br>
-
-          <ol>5. <b>You’re ready to ask Paws!</b></ol>
-          <br>
+      <div class="col-12 col-sm-10 col-md-10 col-lg-8 offset-sm-1 offset-md-1 offset-lg-2 ColOverlap ShadowBox">
+        <h1 class="PawsGap BorderBottom">Registration Successful!<img class="PawsConcept" src="assets/svg/paws-concept.svg" alt="Paws" /></h1>
+        <p> You are now registered to use the Paws skill for Amazon Alexa. There are just a couple more steps to get started. </p>
+        <h3 class="TextCentered">Which device type would you like to use with Paws?</h3>
+        <div class="row">
+          <div class="col-md-6"> <a class="InstructionsLink" href="./setup-echo.html">
+            <picture>
+              <source type="image/webp" data-sizes="auto"
+                    data-srcset="
+                      assets/images/responsive/instructions-echo-180px.webp 180w,
+                      assets/images/responsive/instructions-echo-360px.webp 360w,
+                      assets/images/responsive/instructions-echo-570px.webp 570w,
+                      assets/images/responsive/instructions-echo-720px.webp 720w,
+                      assets/images/responsive/instructions-echo-1140px.webp 1140w,
+                      assets/images/responsive/instructions-echo-1440px.webp 1440w,
+                      assets/images/responsive/instructions-echo-2280px.webp 2280w,
+                      assets/images/responsive/instructions-echo-2880px.webp 2880w" />
+              <img src="assets/images/responsive/instructions-echo.svg"
+                    data-srcset="
+                      assets/images/responsive/instructions-echo-180px.jpeg 180w,
+                      assets/images/responsive/instructions-echo-360px.jpeg 360w,
+                      assets/images/responsive/instructions-echo-570px.jpeg 570w,
+                      assets/images/responsive/instructions-echo-720px.jpeg 720w,
+                      assets/images/responsive/instructions-echo-1140px.jpeg 1140w,
+                      assets/images/responsive/instructions-echo-1440px.jpeg 1440w,
+                      assets/images/responsive/instructions-echo-2280px.jpeg 2280w,
+                      assets/images/responsive/instructions-echo-2880px.jpeg 2880w" class="lazyload blur-up" data-sizes="auto" alt="Add Paws to my Echo" /> </picture>
+            <h2>Add Paws to my Echo</h2>
+            </a> </div>
+          <!-- /col-md-6 -->
+          <div class="col-md-6"> <a class="InstructionsLink" href="./setup-mobile.html">
+            <picture>
+              <source type="image/webp" data-sizes="auto"
+                    data-srcset="
+                      assets/images/responsive/instructions-app-180px.webp 180w,
+                      assets/images/responsive/instructions-app-360px.webp 360w,
+                      assets/images/responsive/instructions-app-570px.webp 570w,
+                      assets/images/responsive/instructions-app-720px.webp 720w,
+                      assets/images/responsive/instructions-app-1140px.webp 1140w,
+                      assets/images/responsive/instructions-app-1440px.webp 1440w,
+                      assets/images/responsive/instructions-app-2280px.webp 2280w,
+                      assets/images/responsive/instructions-app-2880px.webp 2880w" />
+              <img src="assets/images/responsive/instructions-app.svg"
+                    data-srcset="
+                      assets/images/responsive/instructions-app-180px.jpeg 180w,
+                      assets/images/responsive/instructions-app-360px.jpeg 360w,
+                      assets/images/responsive/instructions-app-570px.jpeg 570w,
+                      assets/images/responsive/instructions-app-720px.jpeg 720w,
+                      assets/images/responsive/instructions-app-1140px.jpeg 1140w,
+                      assets/images/responsive/instructions-app-1440px.jpeg 1440w,
+                      assets/images/responsive/instructions-app-2280px.jpeg 2280w,
+                      assets/images/responsive/instructions-app-2880px.jpeg 2880w" class="lazyload blur-up" data-sizes="auto" alt="Add Paws to my Alexa App" /> </picture>
+            <h2>Add Paws to my Alexa App</h2>
+            </a> </div>
+          <!-- /col-md-6 --> 
         </div>
-        <div class="col-md-2"></div>
       </div>
+      <!-- /col-12 col-sm-10 col-md-10 col-lg-8 offset-sm-1 offset-md-1 offset-lg-2 ColOverlap ShadowBox --> 
+      
     </div>
+    <!-- /row --> 
+    
   </div>
+  <!-- /container --> 
+  
 </section>
-<footer><img src="../../../assets/images/foot.jpg" class="img-responsiv"></footer>
