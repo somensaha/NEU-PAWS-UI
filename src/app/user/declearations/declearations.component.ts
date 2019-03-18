@@ -72,9 +72,9 @@ export class DeclearationsComponent implements OnInit {
                 nuId: res.respData.nuId
               };
               localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
-              this.showFerpa = true;
+              this.showFerpa = false;
               this.showGdpr = false;
-              this.showPrivacy = false;
+              this.showPrivacy = true;
               this.showOptin = false;
               this.checkFerpa = this.respData.ferpa;
               this.checkGdpr = this.respData.gdpr;
@@ -87,6 +87,11 @@ export class DeclearationsComponent implements OnInit {
               this.checkHsn = this.respData.hsn;
 
               this.createForm();
+
+              if(this.respData.privacy) {
+                this.showPrivacy = false;
+                this.showOptin = true;
+              }
             } else {
               setTimeout(() => {
                 this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
@@ -140,6 +145,7 @@ export class DeclearationsComponent implements OnInit {
         hsn: new FormControl(this.checkHsn, [Validators.required])
       })
     });
+
   }
 
   receiveMoveGdpr($event) {

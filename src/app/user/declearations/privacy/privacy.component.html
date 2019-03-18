@@ -110,7 +110,7 @@
           <label for="Consent1">By checking this box I agree to the terms and conditions and understand my rights under this privacy statement.</label>
         </div>
 
-        <button class="ObjectCentered" name="Login" [disabled]="!privacyStatus" (click)=moveToOptin()>Continue</button>
+        <button class="ObjectCentered" name="Login" [disabled]="!privacyStatus" [ngClass]="{'disabled': !this.privacyStatus}" (click)=moveToOptin()>Continue</button>
 
       </div><!-- /col-12 ColOverlap ShadowBox -->
 

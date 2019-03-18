@@ -2016,3 +2016,13 @@ button {
 .success-span {
   color: #00a65a;
 }
+
+.disabled {
+  background-color: #cccccc !important;
+  color: black !important;
+}
+
+.disabled :hover {
+  background-color: #cccccc !important;
+  color: black !important;
+}

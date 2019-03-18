@@ -17,6 +17,7 @@ export class FinalinformationComponent implements OnInit {
 
   ngOnInit() {
     this.userDetails = this.authService.userInfo();
+    window.scrollTo(0, 0);
   }
 
 }

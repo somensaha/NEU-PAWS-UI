@@ -38,7 +38,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent1" [ngModel]='checkAdv' (ngModelChange)=submitAdv()>
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent1" [ngModel]="checkAdv" (change)="submitAdv()" [disabled]="checkOptOutAll">
               <label for="Consent1">Opt-in to Key Contacts &amp; Advisors</label>
             </div>
 
@@ -53,7 +53,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent2" [ngModel]='checkAnb' (change)=submitAnb()>
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent2" [ngModel]="checkAnb" (change)="submitAnb()" [disabled]="checkOptOutAll">
               <label for="Consent2">Opt-in to Balances, Dues, Financials</label>
             </div>
 
@@ -68,7 +68,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent3"  [ngModel]='checkGrd' (change)=submitGrd()>
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent3"  [ngModel]="checkGrd" (change)="submitGrd()" [disabled]="checkOptOutAll">
               <label for="Consent3">Opt-in to GPA &amp; Grades</label>
             </div>
 
@@ -83,7 +83,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent4" [ngModel]='checkDoc' (change)=submitDoc()>
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent4" [ngModel]="checkDoc" (change)="submitDoc()" [disabled]="checkOptOutAll">
               <label for="Consent4">Opt-in to Important Documents, Dates, &amp; To Do's</label>
             </div>
 
@@ -98,7 +98,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent5" [ngModel]='checkShl' (change)=submitShl()>
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent5" [ngModel]="checkShl" (change)="submitShl()" [disabled]="checkOptOutAll">
               <label for="Consent5">Opt-in to Schedules &amp; Important Dates</label>
             </div>
 
@@ -113,7 +113,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent6" [ngModel]='checkHsn' (change)=submitHsn()>
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent6" [ngModel]="checkHsn" (change)="submitHsn()" [disabled]="checkOptOutAll">
               <label for="Consent6">Opt-in to Housing</label>
             </div>
 
@@ -128,7 +128,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input class="StyleishCheckbox DataOptIn DataOptOut" id="Consent7" type="checkbox" value="agree" />
+              <input class="StyleishCheckbox DataOptIn DataOptOut" id="Consent7" type="checkbox" [ngModel]="checkOptOutAll" (change)="checkOptOut()" />
               <label for="Consent7" class="red">Opt-out of Paws</label>
             </div>
 
@@ -136,7 +136,10 @@
 
         </div><!-- /row -->
 
-        <button class="ObjectCentered top50" type="submit" name="Login" (click)="submitForm()">Continue</button>
+        <button class="ObjectCentered top50" type="submit" name="Login"
+                [ngClass]="{'disabled': (!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !checkOptOutAll)}"
+                [disabled]="!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !checkOptOutAll"
+                (click)="submitForm()">Continue</button>
 
       </div><!-- /col-12 ColOverlap ShadowBox -->
 

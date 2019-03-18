@@ -27,8 +27,13 @@
           Paws looks forward to chatting with you!
         </p>
         <div class="DoubleButtonWrap">
-          <button class="ObjectCentered" type="submit" name="SignUp" (click)="ssoLogin()">Sign Up</button>
-          <button class="ObjectCentered" type="submit" name="SignIn" (click)="ssoLogin()">Sign In</button>
+          <a href="{{env.rootURL+'Shibboleth.sso/Login?target='+env.rootURL+'signin_callback?token='+token}}">
+            <button class="ObjectCentered" name="SignUp">Sign Up</button>
+          </a>
+          <a href="{{env.rootURL+'Shibboleth.sso/Login?target='+env.rootURL+'signin_callback?token='+token}}">
+            <button class="ObjectCentered" name="SignIn">Sign In</button>
+          </a>
+
         </div>
       </div><!-- /col-12 ColOverlap ShadowBox -->
 

@@ -14,11 +14,15 @@ export class LoginComponent implements OnInit {
   loader: boolean;
   alert: AlertModel;
   title: string;
+  env: any;
+  token: string;
 
   constructor(
       private socialAuthService: AuthService,
       private router: Router
   ) {
+    this.env = environment;
+    this.token = 'shib' + new Date().getTime();
     this.loader = true;
   }
 
@@ -54,7 +58,7 @@ export class LoginComponent implements OnInit {
     const targetURL = environment.rootURL + 'signin_callback?token=' + token;
     const redirectUrl = environment.rootURL + 'Shibboleth.sso/Login?target=' + targetURL;
     console.log('redirect url', redirectUrl);
-    window.location.href = redirectUrl;
+    location.assign(redirectUrl);
   }
 
   onSubmit(form: NgForm) {
