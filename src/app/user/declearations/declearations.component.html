@@ -1,24 +1,7 @@
-<header>
-	<div class=" container-fluid header">
-		<div class="row">
-			<div class="col-md-3 header-left">
-				<img src="../../../assets/images/logo.jpg" alt="logo">
-			</div>
-			<div class="col-md-6 header-center">
-				{{userDetails?.givenName}} {{userDetails?.surname}}
-				<div class="clr"></div>
-				<span>NUID:</span>   {{userDetails?.nuId}}
-			</div>
-			<div class="col-md-3 header-right">
-				<img src="../../../assets/images/logo-left.jpg" alt="logo">
-			</div>
-		</div>
-	</div>
-</header>
 <div class="border-part">
-	<div [formGroup]='form' *ngIf="respData">
-		<app-ferpa   *ngIf="showFerpa"   [checkFerpa]="checkFerpa"  (sendToGdpr)="receiveMoveGdpr($event)"></app-ferpa>
-		<app-gdpr    *ngIf="showGdpr"    [checkGdpr]="checkGdpr"    (sendToPrivacy)="receiveMovePrivacy($event)" ></app-gdpr>
+  <div [formGroup]='form' *ngIf="respData">
+		<!--<app-ferpa   *ngIf="showFerpa"   [checkFerpa]="checkFerpa"  (sendToGdpr)="receiveMoveGdpr($event)"></app-ferpa>-->
+		<!--<app-gdpr    *ngIf="showGdpr"    [checkGdpr]="checkGdpr"    (sendToPrivacy)="receiveMovePrivacy($event)" ></app-gdpr>-->
 		<app-privacy *ngIf="showPrivacy" [checkPrivacy]="checkPrivacy" (sendToOptin)="receiveMoveOptin($event)" ></app-privacy>
 		<app-optin   *ngIf="showOptin"
 					(changeAdv)="changeAdv($event)"
@@ -32,4 +15,3 @@
 					[checkAdv]="checkAdv" [checkDoc]="checkDoc" [checkAnb]="checkAnb" [checkShl]="checkShl" [checkGrd]="checkGrd" [checkHsn]="checkHsn"  [userDetails]="userDetails" [form]='form' ></app-optin>
 	</div>
 </div>
-<footer ><img src="../../../assets/images/foot.jpg" class="img-responsiv"></footer>

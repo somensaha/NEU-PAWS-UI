@@ -1,33 +1,38 @@
-<header>
-  <div class=" container-fluid header">
-    <div class="row">
-      <div class="col-md-3 header-left">
-        <img src="../../../assets/images/logo.jpg" alt="logo">
-      </div>
-      <div class="col-md-6 header-center">
-        <div class="clr"></div>
-      </div>
-      <div class="col-md-3 header-right">
-        <img src="../../../assets/images/logo-left.jpg" alt="logo">
-      </div>
-    </div>
-  </div>
-</header>
-<section class="container-fluid">
-  <div class="body-part ">
-    <div class="row">
-      <div class="col-md-12 offset-2">
-        <div class="awesom">
-        </div>
-          <h4>You are not authorized to access this portal. Please click on "Sign-Out" button and log back in with
-            authorized credentials. Otherwise, please contact administrator.</h4>
+<main class="MainContent">
 
-        <div class="col-md-4">
-          <div class="btn sine" (click)="ssoLogout()">SIGN OUT</div>
-        </div>
-      </div>
-    </div>
+  <picture class="MainContentHeaderBackground">
 
-  </div>
-</section>
-<footer><img src="../../../assets/images/foot.jpg" class="img-responsiv"></footer>
+    <img src="../../../dist/images/responsive/paws-header-background-4.svg"
+         data-srcset="
+          ../../../dist/images/responsive/paws-header-background-4-180px.jpeg 180w,
+          ../../../dist/images/responsive/paws-header-background-4-360px.jpeg 360w,
+          ../../../dist/images/responsive/paws-header-background-4-570px.jpeg 570w,
+          ../../../dist/images/responsive/paws-header-background-4-720px.jpeg 720w,
+          ../../../dist/images/responsive/paws-header-background-4-1140px.jpeg 1140w,
+          ../../../dist/images/responsive/paws-header-background-4-1440px.jpeg 1440w,
+          ../../../dist/images/responsive/paws-header-background-4-2280px.jpeg 2280w,
+          ../../../dist/images/responsive/paws-header-background-4-2880px.jpeg 2880w" class="lazyload blur-up" data-sizes="auto" alt="" />
+  </picture>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12 ColOverlap ShadowBox">
+        <h1 class="PawsGap BorderBottom">Registration Successful!</h1>
+        <p>You are not authorized to access this portal. Please click on "Sign-Out" button and log back in with authorized credentials. Otherwise, please contact administrator.</p>
+
+        <p>
+          <button (click)="ssoLogout()">SIGN OUT</button>
+        </p>
+
+      </div><!-- /col-12 ColOverlap ShadowBox -->
+
+    </div><!-- /row -->
+
+    <div class="row">
+      <a class="nPoweredLink" href="https://www.n-powered.com/" target="_blank" rel="nofollow"><img class="nPoweredLogo" src="../../../dist/svg/n-powered-logo.svg" alt="n-Powered" /></a>
+    </div><!-- /row -->
+
+  </div><!-- /container -->
+
+</main><!-- /MainContent -->

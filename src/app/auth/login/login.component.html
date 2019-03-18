@@ -1,32 +1,50 @@
+<main class="MainContent">
 
-<header>
-    <div class=" container-fluid header">
-    	  <div class="row">
-    	        <div class="col-md-3 header-left">
-   	              <img src="../../../assets/images/logo.jpg" alt="logo">
-              </div>
-              <div class="col-md-6 header-center">
-              </div>
-              <div class="col-md-3 header-right">
-      	         <img src="../../../assets/images/logo-left.jpg" alt="logo">
-              </div>
+  <picture class="MainContentHeaderBackground">
+    <img src="../../../dist/images/responsive/paws-header-background-1.svg"
+         data-srcset="../../../dist/images/responsive/paws-header-background-1-180px.jpeg 180w,
+          ../../../dist/images/responsive/paws-header-background-1-360px.jpeg 360w,
+          ../../../dist/images/responsive/paws-header-background-1-570px.jpeg 570w,
+          ../../../dist/images/responsive/paws-header-background-1-720px.jpeg 720w,
+          ../../../dist/images/responsive/paws-header-background-1-1140px.jpeg 1140w,
+          ../../../dist/images/responsive/paws-header-background-1-1440px.jpeg 1440w,
+          ../../../dist/images/responsive/paws-header-background-1-2280px.jpeg 2280w,
+          ../../../dist/images/responsive/paws-header-background-1-2880px.jpeg 2880w" class="lazyload blur-up" data-sizes="auto" alt="" />
+  </picture>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12 ColOverlap ShadowBox">
+        <h1 class="PawsGap BorderBottom">Welcome to Paws!</h1>
+        <p>
+          <strong>Paws</strong> is your virtual assistant—a skill on the Amazon Alexa platform created just for Northeastern University students. Paws is equipped with the personalized information you need to navigate your Northeastern experience, from schedules to grades, advisors to athletics.
+        </p>
+        <p>
+          Enable the Paws skill on the Alexa mobile app or your Echo device to access a wide range of Northeastern systems and services. Once you do, your information is only a quick chat away. To learn more about how Paws works, visit <a href="https://paws.northeastern.edu" target="_blank">the Paws website</a>.
+        </p>
+        <p>
+          Paws looks forward to chatting with you!
+        </p>
+        <div class="DoubleButtonWrap">
+          <button class="ObjectCentered" type="submit" name="SignUp" (click)="ssoLogin()">Sign Up</button>
+          <button class="ObjectCentered" type="submit" name="SignIn" (click)="ssoLogin()">Sign In</button>
         </div>
+      </div><!-- /col-12 ColOverlap ShadowBox -->
+
+    </div><!-- /row -->
+
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3 col-lg-4 offset-lg-4">
+        <p class="BrowserRecommendation">
+          <em>We recommend using the latest version of your browser or mobile operating system when using Paws.</em>
+        </p><!-- /col-sm-6 offset-sm-2 col-lg-4 offset-large-4 -->
+      </div>
     </div>
-</header>
-<div class="border-part"></div>
-<!--hrader end-->
-<section class="container-fluid">
-	  <div class="body-part">
-    	  <div class="row">
-        	  <div class="col-md-8">
-       	        <img src="../../../assets/images/front.jpg" class="img-responsiv">
-            </div>
-            <div class="col-md-4">
-        	      <div class="btn sine" (click)="ssoLogin()">SIGN IN</div>
-            </div>
-        </div>
-    </div>
-</section>
-<footer >
-    <img src="../../../assets/images/foot.jpg" class="img-responsiv">
-</footer>
+    <div class="row">
+      <a class="nPoweredLink" href="https://www.n-powered.com/" target="_blank" rel="nofollow"><img class="nPoweredLogo" src="../../../dist/svg/n-powered-logo.svg" alt="n-Powered" /></a>
+    </div><!-- /row -->
+
+  </div><!-- /container -->
+
+</main><!-- /MainContent -->

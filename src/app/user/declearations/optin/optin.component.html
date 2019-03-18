@@ -1,78 +1,151 @@
-<section class="container-fluid">
-    <div class="body-part ">
-        <strong>Pick the data you want access to:</strong>
+<main class="MainContent">
+
+  <picture class="MainContentHeaderBackground">
+    <img src="../../../../dist/images/responsive/paws-header-background-3.svg"
+         data-srcset="
+          ../../../../dist/images/responsive/paws-header-background-3-180px.jpeg 180w,
+          ../../../../dist/images/responsive/paws-header-background-3-360px.jpeg 360w,
+          ../../../../dist/images/responsive/paws-header-background-3-570px.jpeg 570w,
+          ../../../../dist/images/responsive/paws-header-background-3-720px.jpeg 720w,
+          ../../../../dist/images/responsive/paws-header-background-3-1140px.jpeg 1140w,
+          ../../../../dist/images/responsive/paws-header-background-3-1440px.jpeg 1440w,
+          ../../../../dist/images/responsive/paws-header-background-3-2280px.jpeg 2280w,
+          ../../../../dist/images/responsive/paws-header-background-3-2880px.jpeg 2880w" class="lazyload blur-up" data-sizes="auto" alt="" />
+  </picture>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12 ColOverlap ShadowBox">
+        <h1 class="PawsGap BorderBottom">Skill Data Opt-in</h1>
+
+        <p>
+          In order for the Paws Alexa skill to relay information to you through your Echo or the Alexa app, you must opt-in to the type of data you wish to receive. Select from the categories below to enable them within the skill. You may return to this site to change your preferences at any time.
+        </p>
+        <br />
+        <p>
+          <strong>The categories of information that I consent to make available to the PAWS skill are:</strong>
+        </p>
 
         <div class="row">
-            <div class="col-md-4">
-                <div class="col-md-11 offset-1">
-                    <ul class="list-box2">
-                        <li>
-                            <div>
-                                <input type="checkbox" class="box" [ngModel]='checkAdv' (ngModelChange)=submitAdv()>
-                            </div>
-                            <h4>Key Contacts & Advisors</h4>
-                            This category will include name and contact information for your key contacts such as Academic, co-op, financial aid, or athletic advisors; Resident Assistant and Resident Directors, etc.
-                        </li>
-                        <li>
-                            <div>
-                                <input type="checkbox" class="box" [ngModel]='checkDoc' (change)=submitDoc()>
-                            </div>
-                            <h4>Important Documents, Dates, & To Do's</h4>
-                            This category will include acknowledgement of whether your financial aid documents are on file, health plan waiver or health insurance documents on file, etc. It will also include information about the status of your refund requests, payment plans, or I Am Here.
-                        </li>
-                    </ul>
-                </div>
+
+          <div class="col-md-6 OptInWrap">
+
+            <h2>Key Contacts &amp; Advisors</h2>
+
+            <p>
+              This category includes name and contact information for your key contacts such as Academic, co-op, financial aid, or athletic advisors; Resident Assistant and Resident Directors, etc.
+            </p>
+
+            <div class="ConsentWrap ConsentWrap--alt">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent1" [ngModel]='checkAdv' (ngModelChange)=submitAdv()>
+              <label for="Consent1">Opt-in to Key Contacts &amp; Advisors</label>
             </div>
-            <div class="col-md-4">
-                <div class="col-md-11">  
-                    <ul class="list-box2">
-                        <li>
-                            <div>
-                                <input type="checkbox" class="box" [ngModel]='checkAnb' (change)=submitAnb()>
-                            </div>
-                            <h4>Balances, Dues, Financials</h4>
-                            This category will include information about your account balances, such as tuition, room and board balances, husky/dining, laundry and print dollar balances, etc. as well as fees assessed, such as library fees, etc.
-                        </li>
-                        <li>
-                            <div>
-                                <input type="checkbox" class="box" [ngModel]='checkShl' (change)=submitShl()>
-                            </div>
-                            <h4>Schedules & Important Dates</h4>
-                            This category will include information about your individual class schedule, class location, class time, name of professor/instructor, etc.
-                        </li>
-                    </ul>
-                </div>
+
+          </div><!-- /col-md-6 OptInWrap -->
+
+          <div class="col-md-6 OptInWrap">
+
+            <h2>Balances, Dues, Financials</h2>
+
+            <p>
+              This category includes information about your account balances, such as tuition, room and board balances, husky/dining, laundry and print dollar balances, etc. as well as fees assessed, such as library fees, etc.
+            </p>
+
+            <div class="ConsentWrap ConsentWrap--alt">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent2" [ngModel]='checkAnb' (change)=submitAnb()>
+              <label for="Consent2">Opt-in to Balances, Dues, Financials</label>
             </div>
-            <div class="col-md-4">
-                <div class="col-md-11">
-                    <ul class="list-box2">
-                        <li>
-                            <div>
-                                <input type="checkbox" class="box"  [ngModel]='checkGrd' (change)=submitGrd()>
-                            </div>
-                            <h4>GPA and Grades</h4>
-                            This category will include information about your overall GPA and your final grade for a particular course.
-                        </li>
-                        <li>
-                           <div>
-                                <input type="checkbox" class="box" [ngModel]='checkHsn' (change)=submitHsn()>
-                            </div>
-                          <h4>Housing</h4>
-                            This category will include information about your housing assignment, room number, mailbox combination, housing selection information, move-in dates, etc.
-                        </li>
-                    </ul>
-                    <div class=" clr"></div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="firstname" placeholder="First name" [ngModel]='userDetails.givenName' readonly="true">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="nuid" placeholder="NUID"  [ngModel]='userDetails.nuId' readonly="true">
-                    </div>
-                   
-                    <button  class="btn con-btn" (click)=submitForm()>Submit</button>
-                    
-                </div>
+
+          </div><!-- /col-md-6 OptInWrap -->
+
+          <div class="col-md-6 OptInWrap">
+
+            <h2>GPA &amp; Grades</h2>
+
+            <p>
+              This category includes information about your overall GPA and your final grade for a particular course.
+            </p>
+
+            <div class="ConsentWrap ConsentWrap--alt">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent3"  [ngModel]='checkGrd' (change)=submitGrd()>
+              <label for="Consent3">Opt-in to GPA &amp; Grades</label>
             </div>
-        </div>
-    </div>
-</section>
+
+          </div><!-- /col-md-6 OptInWrap -->
+
+          <div class="col-md-6 OptInWrap">
+
+            <h2>Important Documents, Dates, &amp; To Do's</h2>
+
+            <p>
+              This category includes acknowledgement of whether your financial aid documents are on file, health plan waiver or health insurance documents on file, etc. It will also include information about and holds on your account, the status of your refund requests, payment plans, move-in dates, or "I Am Here".
+            </p>
+
+            <div class="ConsentWrap ConsentWrap--alt">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent4" [ngModel]='checkDoc' (change)=submitDoc()>
+              <label for="Consent4">Opt-in to Important Documents, Dates, &amp; To Do's</label>
+            </div>
+
+          </div><!-- /col-md-6 OptInWrap -->
+
+          <div class="col-md-6 OptInWrap">
+
+            <h2>Schedules &amp; Important Dates</h2>
+
+            <p>
+              This category includes information about your individual class schedule, class location, class time, etc.
+            </p>
+
+            <div class="ConsentWrap ConsentWrap--alt">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent5" [ngModel]='checkShl' (change)=submitShl()>
+              <label for="Consent5">Opt-in to Schedules &amp; Important Dates</label>
+            </div>
+
+          </div><!-- /col-md-6 OptInWrap -->
+
+          <div class="col-md-6 OptInWrap">
+
+            <h2>Housing</h2>
+
+            <p style="margin-bottom: 1rem;">
+              This category includes information about your housing assignment, room number, mailbox combination, housing selection information, etc.
+            </p>
+
+            <div class="ConsentWrap ConsentWrap--alt">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent6" [ngModel]='checkHsn' (change)=submitHsn()>
+              <label for="Consent6">Opt-in to Housing</label>
+            </div>
+
+          </div><!-- /col-md-6 OptInWrap -->
+
+          <div class="col-md-6 offset-md-3 OptInWrap">
+
+            <h2 class="red">Opt-out</h2>
+
+            <p class="red" style="margin-bottom: 1rem;">
+              By opting-out of all categories, none of your personal data will be available to Paws. Any data that may have been previously shared with the platform will be removed.
+            </p>
+
+            <div class="ConsentWrap ConsentWrap--alt">
+              <input class="StyleishCheckbox DataOptIn DataOptOut" id="Consent7" type="checkbox" value="agree" />
+              <label for="Consent7" class="red">Opt-out of Paws</label>
+            </div>
+
+          </div><!-- /col-md-6 offset-md-3 OptInWrap -->
+
+        </div><!-- /row -->
+
+        <button class="ObjectCentered top50" type="submit" name="Login" (click)="submitForm()">Continue</button>
+
+      </div><!-- /col-12 ColOverlap ShadowBox -->
+
+    </div><!-- /row -->
+
+    <div class="row">
+      <a class="nPoweredLink" href="https://www.n-powered.com/" target="_blank" rel="nofollow"><img class="nPoweredLogo" src="../../../../dist/svg/n-powered-logo.svg" alt="n-Powered" /></a>
+    </div><!-- /row -->
+
+  </div><!-- /container -->
+
+</main><!-- /MainContent -->
