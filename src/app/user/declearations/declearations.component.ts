@@ -28,6 +28,7 @@ export class DeclearationsComponent implements OnInit {
   checkHsn: boolean;
   userDetails: UserInfoModel;
   userToken: string;
+  loader: boolean;
 
   respData: any;
 
@@ -39,6 +40,7 @@ export class DeclearationsComponent implements OnInit {
     private route: ActivatedRoute,
     private toastr: ToastrService
   ) {
+    this.loader = true;
     this.route.queryParams.subscribe(params => {
       this.userToken = params['token'];
       // this.userToken = 'shibap551u3y4l7';
@@ -92,6 +94,7 @@ export class DeclearationsComponent implements OnInit {
                 this.showPrivacy = false;
                 this.showOptin = true;
               }
+              this.loader = false;
             } else {
               setTimeout(() => {
                 this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
@@ -100,6 +103,7 @@ export class DeclearationsComponent implements OnInit {
                 });
               });
               this.router.navigate(['/']);
+              this.loader = false;
             }
 
 
@@ -110,6 +114,7 @@ export class DeclearationsComponent implements OnInit {
                 progressBar: true,
               });
             });
+            this.loader = false;
             this.router.navigate(['/']);
           }
         );
@@ -145,7 +150,6 @@ export class DeclearationsComponent implements OnInit {
         hsn: new FormControl(this.checkHsn, [Validators.required])
       })
     });
-
   }
 
   receiveMoveGdpr($event) {

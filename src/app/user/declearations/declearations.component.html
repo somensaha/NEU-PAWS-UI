@@ -1,3 +1,8 @@
+<div class="overlay" *ngIf="loader">
+  <div class="loader-img">
+    <img src="./assets/images/Cube-1s-60px.svg">
+  </div>
+</div>
 <div class="border-part">
   <div [formGroup]='form' *ngIf="respData">
 		<!--<app-ferpa   *ngIf="showFerpa"   [checkFerpa]="checkFerpa"  (sendToGdpr)="receiveMoveGdpr($event)"></app-ferpa>-->
