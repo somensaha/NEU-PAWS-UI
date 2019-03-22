@@ -20,11 +20,14 @@
         <h1 class="PawsGap BorderBottom">Skill Data Opt-in</h1>
 
         <p>
-          In order for the Paws Alexa skill to relay information to you through your Echo or the Alexa app, you must opt-in to the type of data you wish to receive. Select from the categories below to enable them within the skill. You may return to this site to change your preferences at any time.
+          In order for the Paws Alexa skill to relay information to you through your Echo device or the Alexa app, you must opt-in to the type of data you wish to receive. Select from the categories below to enable them within the skill. You may return to this site to change your preferences at any time.
+        </p>
+        <p>
+          Please consider that the information you consent to share with Paws will be available on all devices associated with the Amazon account you link. If other individuals have access to any of these devices, please consider creating a new Amazon account to link with Paws and associating it with personal devices that only you have access to.
         </p>
         <br />
         <p>
-          <strong>The categories of information that I consent to make available to the PAWS skill are:</strong>
+          <strong>The categories of information that I consent to make available to the Paws skill are:</strong>
         </p>
 
         <div class="row">
@@ -140,9 +143,14 @@
                 [ngClass]="{'disabled': (!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !checkOptOutAll)}"
                 [disabled]="!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !checkOptOutAll"
                 (click)="submitForm()">Continue</button>
-
+        <br />
+        <p>
+          Paws Privacy Statement: <a href="https://express.northeastern.edu/paws/privacy/" target="_blank">https://express.northeastern.edu/paws/privacy/</a>
+        </p>
       </div><!-- /col-12 ColOverlap ShadowBox -->
-
+      <!--<p>-->
+        <!--Paws Privacy Statement: <a href="https://express.northeastern.edu/paws/privacy/" target="_blank">https://express.northeastern.edu/paws/privacy/</a>-->
+      <!--</p>-->
     </div><!-- /row -->
 
     <div class="row">

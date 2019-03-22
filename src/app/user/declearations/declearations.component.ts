@@ -123,8 +123,40 @@ export class DeclearationsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.demoCredentials();
 
+  }
 
+  demoCredentials() {
+    this.respData = {nuid: '9898989', email: 'abc@domain.com', givenName: 'Demo', surName: 'sdasdsa', ferpa: true, gdpr: true, privacy: true, adv: true, doc: true, anb: true, shl: true, grd: true, hsn: true};
+    this.userDetails = {
+      emailId: this.respData.email,
+      givenName: this.respData.givenName,
+      surname: this.respData.surName,
+      nuId: this.respData.nuId
+    };
+    localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
+    this.showFerpa = false;
+    this.showGdpr = false;
+    this.showPrivacy = true;
+    this.showOptin = false;
+    this.checkFerpa = this.respData.ferpa;
+    this.checkGdpr = this.respData.gdpr;
+    this.checkPrivacy = this.respData.privacy;
+    this.checkAdv = this.respData.adv;
+    this.checkDoc = this.respData.doc;
+    this.checkAnb = this.respData.anb;
+    this.checkShl = this.respData.shl;
+    this.checkGrd = this.respData.grd;
+    this.checkHsn = this.respData.hsn;
+
+    this.createForm();
+
+    if(this.respData.privacy) {
+      this.showPrivacy = false;
+      this.showOptin = true;
+    }
+    this.loader = false;
   }
 
   /**
