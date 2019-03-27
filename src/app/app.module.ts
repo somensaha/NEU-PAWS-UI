@@ -20,6 +20,7 @@ import {
   SocialLoginModule
 } from 'angular-6-social-login';
 import { CallbackComponent } from './auth/callback/callback.component';
+import { PrivacyStatementComponent } from './privacy-statement/privacy-statement.component';
 
 
 // Configs
@@ -49,6 +50,7 @@ export function getAuthServiceConfigs() {
     RegistrationComponent,
     PageNotFoundComponent,
     CallbackComponent,
+    PrivacyStatementComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
