@@ -15,9 +15,78 @@
 
   <div class="container">
     <div class="row">
-
       <div class="col-12 ColOverlap ShadowBox">
         <h1 class="PawsGap BorderBottom">Skill Data Opt-in</h1>
+        <p></p>
+
+        <div class="row">
+            <div class="col-md-6 OptInWrap">
+  
+              <h2>Voice Opt-In</h2>
+  
+              <p>
+                  The Voicebot works with your voice and listens to the question you ask, then answers your question or performs the required action.
+              </p>
+  
+              <div class="ConsentWrap ConsentWrap--alt">
+                <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent10" [ngModel]="skillOptIn" [disabled]="optOut" (change)="submitskillOptIn(); checkIfBothOptIn()">
+                <label for="Consent10">Opt-In to the Voicebot now, by checking this box…</label>
+              </div>
+  
+            </div><!-- /col-md-6 OptInWrap -->
+            <div class="col-md-6 OptInWrap">
+  
+                <h2>Chatbot Opt-In</h2>
+    
+                <p>
+                    The Chatbot works as a highly engaging conversation experience through text and will respond to key words and questions you ask in a simple and straightforward way.
+                </p>
+    
+                <div class="ConsentWrap ConsentWrap--alt">
+                  <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent11" [ngModel]="chatbotOptIn" [disabled]="optOut"  (change)="submitchatbotOptIn(); checkIfBothOptIn()">
+                  <label for="Consent11">Opt-In to the Chatbot now, by checking this box…</label>
+                </div>
+    
+            </div><!-- /col-md-6 OptInWrap -->
+        </div>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 OptInWrap">
+
+              <h2>Skill & Chatbot both Opt-In</h2>
+  
+              <div class="ConsentWrap ConsentWrap--alt">
+                <input class="StyleishCheckbox DataOptIn DataOptOut" id="Consent12" type="checkbox" [ngModel]="voiceChatbotOptIn" [disabled]="optOut" (change)="checkOptIn()">
+                <label for="Consent12">Click here if you would like to opt IN to BOTH the Voicebot and the Chatbot…</label>
+              </div>
+  
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+            
+        <div class="row">
+          <div class="col-md-3"></div>
+            <div class="col-md-6 OptInWrap">
+
+              <h2 class="red">Opt-out</h2>
+  
+              <p class="red" style="margin-bottom: 1rem;">
+                By opting-out of all categories, none of your personal data will be available to MyHusky. Any data that may have been previously shared with the platform will be removed.
+              </p>
+  
+              <div class="ConsentWrap ConsentWrap--alt">
+                <input class="StyleishCheckbox DataOptIn DataOptOut" id="Consent13" type="checkbox" [ngModel]="optOut" (change)="checkOptOut()" [disabled]="voiceChatbotOptIn"/>
+                <label for="Consent13" class="red">Click here if you would like to opt OUT of both the Voicebot and the Chatbot…</label>
+              </div>
+  
+            </div><!-- /col-md-6 offset-md-3 OptInWrap -->
+          <div class="col-md-3"></div>
+
+        </div>
+            <!-- /col-md-6 offset-md-3 OptInWrap -->
+
+        <h1 class="PawsGap BorderBottom">Opt-in Categories</h1>
 
         <p>
           In order for the MyHusky Alexa skill to relay information to you through your Echo device or the Alexa app, you must opt-in to the type of data you wish to receive. Select from the categories below to enable them within the skill. You may return to this site to change your preferences at any time.
@@ -41,7 +110,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent1" [ngModel]="checkAdv" (change)="submitAdv()" [disabled]="checkOptOutAll">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent1" [ngModel]="checkAdv" (change)="submitAdv()" [disabled]="optOut">
               <label for="Consent1">Opt-in to Key Contacts &amp; Advisors</label>
             </div>
 
@@ -56,7 +125,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent2" [ngModel]="checkAnb" (change)="submitAnb()" [disabled]="checkOptOutAll">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent2" [ngModel]="checkAnb" (change)="submitAnb()" [disabled]="optOut">
               <label for="Consent2">Opt-in to Balances, Dues, Financials</label>
             </div>
 
@@ -71,7 +140,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent3"  [ngModel]="checkGrd" (change)="submitGrd()" [disabled]="checkOptOutAll">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent3"  [ngModel]="checkGrd" (change)="submitGrd()" [disabled]="optOut">
               <label for="Consent3">Opt-in to GPA &amp; Grades</label>
             </div>
 
@@ -86,7 +155,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent4" [ngModel]="checkDoc" (change)="submitDoc()" [disabled]="checkOptOutAll">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent4" [ngModel]="checkDoc" (change)="submitDoc()" [disabled]="optOut">
               <label for="Consent4">Opt-in to Important Documents, Dates, &amp; To Do's</label>
             </div>
 
@@ -101,7 +170,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent5" [ngModel]="checkShl" (change)="submitShl()" [disabled]="checkOptOutAll">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent5" [ngModel]="checkShl" (change)="submitShl()" [disabled]="optOut">
               <label for="Consent5">Opt-in to Schedules &amp; Important Dates</label>
             </div>
 
@@ -116,13 +185,13 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent6" [ngModel]="checkHsn" (change)="submitHsn()" [disabled]="checkOptOutAll">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent6" [ngModel]="checkHsn" (change)="submitHsn()" [disabled]="optOut">
               <label for="Consent6">Opt-in to Housing</label>
             </div>
 
           </div><!-- /col-md-6 OptInWrap -->
 
-          <div class="col-md-6 offset-md-3 OptInWrap">
+          <!-- <div class="col-md-6 offset-md-3 OptInWrap">
 
             <h2 class="red">Opt-out</h2>
 
@@ -131,17 +200,18 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input class="StyleishCheckbox DataOptIn DataOptOut" id="Consent7" type="checkbox" [ngModel]="checkOptOutAll" (change)="checkOptOut()" />
+              <input class="StyleishCheckbox DataOptIn DataOptOut" id="Consent7" type="checkbox" [ngModel]="optOut" (change)="checkOptOut()" />
               <label for="Consent7" class="red">Opt-out of MyHusky</label>
             </div>
 
-          </div><!-- /col-md-6 offset-md-3 OptInWrap -->
+          </div> -->
+          <!-- /col-md-6 offset-md-3 OptInWrap -->
 
         </div><!-- /row -->
 
         <button class="ObjectCentered top50" type="submit" name="Login"
-                [ngClass]="{'disabled': (!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !checkOptOutAll)}"
-                [disabled]="!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !checkOptOutAll"
+                [ngClass]="{'disabled': (!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !optOut)}"
+                [disabled]="!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !optOut"
                 (click)="submitForm()">Continue</button>
         <br />
         <p>

@@ -26,6 +26,10 @@ export class DeclearationsComponent implements OnInit {
   checkShl: boolean;
   checkGrd: boolean;
   checkHsn: boolean;
+  skillOptIn: boolean;
+  chatbotOptIn: boolean;
+  voiceChatbotOptIn: boolean;
+  optOut: boolean;
   userDetails: UserInfoModel;
   userToken: string;
   loader: boolean;
@@ -87,6 +91,10 @@ export class DeclearationsComponent implements OnInit {
               this.checkShl = this.respData.shl;
               this.checkGrd = this.respData.grd;
               this.checkHsn = this.respData.hsn;
+              this.skillOptIn = this.respData.skillOptIn;
+              this.chatbotOptIn = this.respData.chatbotOptIn;
+              this.voiceChatbotOptIn = this.respData.voiceChatbotOptIn;
+              this.optOut = this.respData.optOut;
 
               this.createForm();
 
@@ -128,7 +136,10 @@ export class DeclearationsComponent implements OnInit {
   }
 
   demoCredentials() {
-    this.respData = {nuid: '9898989', email: 'abc@domain.com', givenName: 'Demo', surName: 'sdasdsa', ferpa: true, gdpr: true, privacy: true, adv: true, doc: true, anb: true, shl: true, grd: true, hsn: true};
+    this.respData = {nuid: '9898989', email: 'abc@domain.com', givenName: 'Demo', surName: 'sdasdsa', 
+                      ferpa: true, gdpr: true, privacy: true, adv: true, doc: true, anb: true, shl: true, grd: true, hsn: true,
+                      skillOptIn: true, chatbotOptIn: true, voiceChatbotOptIn: true, optOut: false
+                    };
     this.userDetails = {
       emailId: this.respData.email,
       givenName: this.respData.givenName,
@@ -149,7 +160,10 @@ export class DeclearationsComponent implements OnInit {
     this.checkShl = this.respData.shl;
     this.checkGrd = this.respData.grd;
     this.checkHsn = this.respData.hsn;
-
+    this.skillOptIn = this.respData.skillOptIn;
+    this.chatbotOptIn = this.respData.chatbotOptIn;
+    this.voiceChatbotOptIn = this.respData.voiceChatbotOptIn;
+    this.optOut = this.respData.optOut;
     this.createForm();
 
     if(this.respData.privacy) {
@@ -179,7 +193,11 @@ export class DeclearationsComponent implements OnInit {
         doc: new FormControl(this.checkDoc, [Validators.required]),
         shl: new FormControl(this.checkShl, [Validators.required]),
         adv: new FormControl(this.checkAdv, [Validators.required]),
-        hsn: new FormControl(this.checkHsn, [Validators.required])
+        hsn: new FormControl(this.checkHsn, [Validators.required]),
+        skillOptIn: new FormControl(this.skillOptIn, [Validators.required]),
+        chatbotOptIn: new FormControl(this.chatbotOptIn, [Validators.required]),
+        voiceChatbotOptIn: new FormControl(this.voiceChatbotOptIn, [Validators.required]),
+        optOut: new FormControl(this.optOut, [Validators.required])
       })
     });
   }
@@ -242,6 +260,32 @@ export class DeclearationsComponent implements OnInit {
     this.checkHsn = $event;
     const optCat = this.form.get('optcatdetails') as FormGroup;
     optCat.controls['hsn'].setValue(this.checkHsn);
+  }
+
+  changeskillOptIn($event) {
+    this.skillOptIn = $event;
+    const optCat = this.form.get('optcatdetails') as FormGroup;
+    optCat.controls['skillOptIn'].setValue(this.skillOptIn);
+  }
+
+  changechatbotOptIn($event) {
+    this.chatbotOptIn = $event;
+    const optCat = this.form.get('optcatdetails') as FormGroup;
+    optCat.controls['chatbotOptIn'].setValue(this.chatbotOptIn);
+  }
+
+  changevoiceChatbotOptIn($event) {
+    this.voiceChatbotOptIn = $event;
+    // console.log('this.voiceChatbotOptIn', this.voiceChatbotOptIn);
+    const optCat = this.form.get('optcatdetails') as FormGroup;
+    optCat.controls['voiceChatbotOptIn'].setValue(this.voiceChatbotOptIn);
+  }
+
+  changeoptOut($event) {
+    this.optOut = $event;
+    // console.log('this.optOut',this.optOut);
+    const optCat = this.form.get('optcatdetails') as FormGroup;
+    optCat.controls['optOut'].setValue(this.optOut);
   }
 
   submitData($event) {

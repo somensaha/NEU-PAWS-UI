@@ -14,6 +14,10 @@ export class OptinComponent implements OnInit {
   @Input('checkShl') checkShl: boolean;
   @Input('checkGrd') checkGrd: boolean;
   @Input('checkHsn') checkHsn: boolean;
+  @Input('skillOptIn') skillOptIn: boolean;
+  @Input('chatbotOptIn') chatbotOptIn: boolean;
+  @Input('voiceChatbotOptIn') voiceChatbotOptIn: boolean;
+  @Input('optOut') optOut: boolean;
   
   @Input ('userDetails') userDetails :any;
 
@@ -26,6 +30,10 @@ export class OptinComponent implements OnInit {
   @Output() chageDoc = new EventEmitter<any>();
   @Output() chandeShl = new EventEmitter<any>();
   @Output() changeHsn = new EventEmitter<any>();
+  @Output() changeskillOptIn = new EventEmitter<any>();
+  @Output() changechatbotOptIn = new EventEmitter<any>();
+  @Output() changevoiceChatbotOptIn = new EventEmitter<any>();
+  @Output() changeoptOut = new EventEmitter<any>();
 
   checkOptOutAll: boolean;
 
@@ -37,7 +45,7 @@ export class OptinComponent implements OnInit {
   }
 
   public submitForm() {
-    if (!this.checkAdv && !this.checkAnb && !this.checkGrd && !this.checkDoc && !this.checkHsn && !this.checkShl && !this.checkOptOutAll) {
+    if (!this.checkAdv && !this.checkAnb && !this.checkGrd && !this.checkDoc && !this.checkHsn && !this.checkShl && !this.optOut) {
 
     } else {
       this.submitTheForm.emit();
@@ -70,9 +78,56 @@ export class OptinComponent implements OnInit {
       this.changeHsn.emit(this.checkHsn);
   }
 
+  submitskillOptIn(){
+      this.skillOptIn=!this.skillOptIn;
+      this.changeskillOptIn.emit(this.skillOptIn);
+  }
+
+  submitchatbotOptIn(){
+    this.chatbotOptIn=!this.chatbotOptIn;
+    this.changechatbotOptIn.emit(this.chatbotOptIn);
+  }
+
   checkOptOut() {
-    this.checkOptOutAll = !this.checkOptOutAll;
-    if (this.checkOptOutAll !== false) {
+    this.optOut = !this.optOut;
+    this.changeoptOut.emit(this.optOut);
+    if (this.optOut !== false) {
+      this.checkAdv = false;
+      this.changeAdv.emit(this.checkAdv);
+      this.checkAnb = false;
+      this.changeAnb.emit(this.checkAnb);
+      this.checkGrd = false;
+      this.changeGrd.emit(this.checkGrd);
+      this.checkDoc = false;
+      this.chageDoc.emit(this.checkDoc);
+      this.checkShl = false;
+      this.chandeShl.emit(this.checkShl);
+      this.checkHsn = false;
+      this.changeHsn.emit(this.checkHsn);
+      this.skillOptIn = false;
+      this.changeskillOptIn.emit(this.skillOptIn);
+      this.chatbotOptIn = false;
+      this.changechatbotOptIn.emit(this.chatbotOptIn);
+      this.voiceChatbotOptIn = false;
+      this.changevoiceChatbotOptIn.emit(this.voiceChatbotOptIn);
+    }
+  }
+
+  checkOptIn() {
+    this.voiceChatbotOptIn = !this.voiceChatbotOptIn;
+    this.changevoiceChatbotOptIn.emit(this.voiceChatbotOptIn);
+    if (this.voiceChatbotOptIn) {
+      this.optOut = false;
+      this.changeoptOut.emit(this.optOut);
+      this.skillOptIn = true;
+      this.changeskillOptIn.emit(this.skillOptIn);
+      this.chatbotOptIn = true;
+      this.changechatbotOptIn.emit(this.chatbotOptIn);
+    } else {
+      this.skillOptIn = false;
+      this.changeskillOptIn.emit(this.skillOptIn);
+      this.chatbotOptIn = false;
+      this.changechatbotOptIn.emit(this.chatbotOptIn);
       this.checkAdv = false;
       this.changeAdv.emit(this.checkAdv);
       this.checkAnb = false;
@@ -88,5 +143,13 @@ export class OptinComponent implements OnInit {
     }
   }
 
-
+  checkIfBothOptIn() {
+    if (this.skillOptIn && this.chatbotOptIn) {
+      this.voiceChatbotOptIn = true;
+      this.changevoiceChatbotOptIn.emit(this.voiceChatbotOptIn);
+    } else {
+      this.voiceChatbotOptIn = false;
+      this.changevoiceChatbotOptIn.emit(this.voiceChatbotOptIn);
+    }
+  }
 }
