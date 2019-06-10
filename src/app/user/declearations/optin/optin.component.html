@@ -14,10 +14,20 @@
   </picture>
 
   <div class="container">
-    <div class="row">
-      <div class="col-12 ColOverlap ShadowBox">
-        <h1 class="PawsGap BorderBottom">Skill Data Opt-in</h1>
-        <p></p>
+    <div class="ShadowBox">
+      <div class="ShadowBox2">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h1 class="PawsGap BorderBottom">Skill Data Opt-in</h1>
+                      <p></p>
+
+        </div>
+
+
+
+        </div>
+       
 
         <div class="row">
             <div class="col-md-6 OptInWrap">
@@ -84,20 +94,28 @@
           <div class="col-md-3"></div>
 
         </div>
-            <!-- /col-md-6 offset-md-3 OptInWrap -->
+           
+         <div class="row">
+            <div class="col-md-12">
 
-        <h1 class="PawsGap BorderBottom">Opt-in Categories</h1>
+            <h1 class="PawsGap BorderBottom">Opt-in Categories</h1>
 
-        <p>
-          In order for the MyHusky Alexa skill to relay information to you through your Echo device or the Alexa app, you must opt-in to the type of data you wish to receive. Select from the categories below to enable them within the skill. You may return to this site to change your preferences at any time.
-        </p>
-        <p>
-          Please consider that the information you consent to share with MyHusky will be available on all devices associated with the Amazon account you link. If other individuals have access to any of these devices, please consider creating a new Amazon account to link with MyHusky and associating it with personal devices that only you have access to.
-        </p>
-        <br />
-        <p>
-          <strong>The categories of information that I consent to make available to the MyHusky skill are:</strong>
-        </p>
+                    <p>
+                      In order for the MyHusky Alexa skill to relay information to you through your Echo device or the Alexa app, you must opt-in to the type of data you wish to receive. Select from the categories below to enable them within the skill. You may return to this site to change your preferences at any time.
+                    </p>
+                    <p>
+                      Please consider that the information you consent to share with MyHusky will be available on all devices associated with the Amazon account you link. If other individuals have access to any of these devices, please consider creating a new Amazon account to link with MyHusky and associating it with personal devices that only you have access to.
+                    </p>
+                    <br />
+                    <p>
+                      <strong>The categories of information that I consent to make available to the MyHusky skill are:</strong>
+                    </p>
+
+            </div>
+
+
+         </div>
+        
 
         <div class="row">
 
@@ -116,6 +134,7 @@
 
           </div><!-- /col-md-6 OptInWrap -->
 
+
           <div class="col-md-6 OptInWrap">
 
             <h2>Balances, Dues, Financials</h2>
@@ -130,7 +149,8 @@
             </div>
 
           </div><!-- /col-md-6 OptInWrap -->
-
+        </div>
+        <div class="row">
           <div class="col-md-6 OptInWrap">
 
             <h2>GPA &amp; Grades</h2>
@@ -160,7 +180,8 @@
             </div>
 
           </div><!-- /col-md-6 OptInWrap -->
-
+        </div>
+        <div class="row">
           <div class="col-md-6 OptInWrap">
 
             <h2>Schedules &amp; Important Dates</h2>
@@ -189,27 +210,13 @@
               <label for="Consent6">Opt-in to Housing</label>
             </div>
 
-          </div><!-- /col-md-6 OptInWrap -->
+          </div>
 
-          <!-- <div class="col-md-6 offset-md-3 OptInWrap">
+        </div>
 
-            <h2 class="red">Opt-out</h2>
-
-            <p class="red" style="margin-bottom: 1rem;">
-              By opting-out of all categories, none of your personal data will be available to MyHusky. Any data that may have been previously shared with the platform will be removed.
-            </p>
-
-            <div class="ConsentWrap ConsentWrap--alt">
-              <input class="StyleishCheckbox DataOptIn DataOptOut" id="Consent7" type="checkbox" [ngModel]="optOut" (change)="checkOptOut()" />
-              <label for="Consent7" class="red">Opt-out of MyHusky</label>
-            </div>
-
-          </div> -->
-          <!-- /col-md-6 offset-md-3 OptInWrap -->
-
-        </div><!-- /row -->
-
-        <button class="ObjectCentered top50" type="submit" name="Login"
+        <div class="row">
+          <div class="col-md-12">
+               <button class="ObjectCentered top50" type="submit" name="Login"
                 [ngClass]="{'disabled': (!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !optOut)}"
                 [disabled]="!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !optOut"
                 (click)="submitForm()">Continue</button>
@@ -217,16 +224,27 @@
         <p>
           MyHusky Privacy Statement: <a href="https://express.northeastern.edu/paws/privacy/" target="_blank">https://express.northeastern.edu/paws/privacy/</a>
         </p>
-      </div><!-- /col-12 ColOverlap ShadowBox -->
-      <!--<p>-->
-        <!--MyHusky Privacy Statement: <a href="https://express.northeastern.edu/paws/privacy/" target="_blank">https://express.northeastern.edu/paws/privacy/</a>-->
-      <!--</p>-->
-    </div><!-- /row -->
+
+
+          </div>
+
+
+        </div>
+       
+      </div> 
+      
+    </div>
 
     <div class="row">
       <a class="nPoweredLink" href="https://www.n-powered.com/" target="_blank" rel="nofollow"><img class="nPoweredLogo" src="../../../../dist/svg/n-powered-logo.svg" alt="n-Powered" /></a>
-    </div><!-- /row -->
+    </div>
 
   </div><!-- /container -->
 
 </main><!-- /MainContent -->
+
+
+
+
+
+

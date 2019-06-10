@@ -1225,7 +1225,7 @@ h4 {
   overflow: hidden;
 }
 
-.MainContentHeaderBackground picture, .MainContentHeaderBackground img, .MainContentHeaderBackground svg {
+.MainContentHeaderBackground picture,  .MainContentHeaderBackground svg {
   min-width: 101%;
   min-height: 100%;
   display: block;
@@ -1235,6 +1235,22 @@ h4 {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+
+.MainContentHeaderBackground img {
+  /* min-width: 101%; */
+  /* min-height: 100%; */
+  /* display: block; */
+  position: absolute;
+  /* top: 50%; */
+  width: 100%;
+  /* left: 50%; */
+  /* -webkit-transform: translate(-50%, -50%); */
+  /* transform: translate(-50%, -50%); */
+}
+
+
+
 
 main:first-of-type {
   margin-top: 50px;
@@ -2043,3 +2059,75 @@ button {
   top: 50%;
   left: 48%;
 }
+
+.OptInWrap {
+	margin: 0% auto !important;
+	padding: 15px !important;
+  width: 90% !important;
+}
+
+.ShadowBox{
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+
+.ShadowBox2,.row{
+  margin-bottom: 15px;
+}
+.ShadowBox, .ShadowBox2 {
+	padding: 1% 2%;
+	margin: 0 auto;
+}
+
+/********************@media only screen and (min-width:200px) and (max-width:767px)********************/
+@media only screen and (min-width:200px) and (max-width:767px) {
+
+  .MainContentHeaderBackground {
+    height: auto;
+  }
+  h1 {
+    font-size: 24px;
+  }
+
+  .OptInWrap {
+    margin: 5% auto !important;
+
+  }
+  .ShadowBox2, .row {
+    margin-bottom: 0;
+  }
+  }
+  @media only screen and (min-width:200px) and (max-width:767px) and (orientation:landscape) {}
+  /********************@media only screen and (min-width:200px) and (max-width:767px)********************/
+  /********************@media only screen and (min-width:768px) and (max-width:991px)********************/
+  @media only screen and (min-width:768px) and (max-width:1024px) {
+    .MainContentHeaderBackground {
+      height: auto;
+    }
+
+    .OptInWrap {
+      margin: 2% auto !important;
+
+    }
+
+    .ShadowBox2, .row {
+      margin-bottom: 0;
+    }
+
+  }	
+  
+  @media only screen and (min-width:768px) and (max-width:1024px) and (orientation:portrait) {
+  
+  }
+  @media only screen and (min-width:768px) and (max-width:1024px) and (orientation:landscape) {}
+  /********************@media only screen and (min-width:768px) and (max-width:991px)********************/
+  /********************@media only screen and (min-width:992px) and (max-width:1023px)********************/
+  @media only screen and (min-width:992px) and (max-width:1023px) {}
+  /********************@media only screen and (min-width:992px) and (max-width:1023px)********************/
+  /********************@media only screen and (min-width:1024px) and (max-width:1200px)********************/
+  @media only screen and (min-width:1024px) and (max-width:1200px) {}
+  /********************@media only screen and (min-width:1024px) and (max-width:1200px)********************/
+  /********************@media only screen and (min-width:1201px)********************/
+  @media only screen and (min-width:1201px) {}
+  /********************@media only screen and (min-width:1201px)********************/
