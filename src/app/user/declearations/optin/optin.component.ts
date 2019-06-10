@@ -81,11 +81,13 @@ export class OptinComponent implements OnInit {
   submitskillOptIn(){
       this.skillOptIn=!this.skillOptIn;
       this.changeskillOptIn.emit(this.skillOptIn);
+      this.checkIfBothOptOut();
   }
 
   submitchatbotOptIn(){
     this.chatbotOptIn=!this.chatbotOptIn;
     this.changechatbotOptIn.emit(this.chatbotOptIn);
+    this.checkIfBothOptOut();
   }
 
   checkOptOut() {
@@ -150,6 +152,23 @@ export class OptinComponent implements OnInit {
     } else {
       this.voiceChatbotOptIn = false;
       this.changevoiceChatbotOptIn.emit(this.voiceChatbotOptIn);
+    }
+  }
+
+  checkIfBothOptOut() {
+    if (!this.skillOptIn && !this.chatbotOptIn) {
+      this.checkAdv = false;
+      this.changeAdv.emit(this.checkAdv);
+      this.checkAnb = false;
+      this.changeAnb.emit(this.checkAnb);
+      this.checkGrd = false;
+      this.changeGrd.emit(this.checkGrd);
+      this.checkDoc = false;
+      this.chageDoc.emit(this.checkDoc);
+      this.checkShl = false;
+      this.chandeShl.emit(this.checkShl);
+      this.checkHsn = false;
+      this.changeHsn.emit(this.checkHsn);
     }
   }
 }

@@ -128,7 +128,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent1" [ngModel]="checkAdv" (change)="submitAdv()" [disabled]="optOut">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent1" [ngModel]="checkAdv" (change)="submitAdv()" [disabled]="optOut || (!skillOptIn && !chatbotOptIn)">
               <label for="Consent1">Opt-in to Key Contacts &amp; Advisors</label>
             </div>
 
@@ -144,7 +144,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent2" [ngModel]="checkAnb" (change)="submitAnb()" [disabled]="optOut">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent2" [ngModel]="checkAnb" (change)="submitAnb()" [disabled]="optOut || (!skillOptIn && !chatbotOptIn)">
               <label for="Consent2">Opt-in to Balances, Dues, Financials</label>
             </div>
 
@@ -160,7 +160,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent3"  [ngModel]="checkGrd" (change)="submitGrd()" [disabled]="optOut">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent3"  [ngModel]="checkGrd" (change)="submitGrd()" [disabled]="optOut || (!skillOptIn && !chatbotOptIn)">
               <label for="Consent3">Opt-in to GPA &amp; Grades</label>
             </div>
 
@@ -175,7 +175,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent4" [ngModel]="checkDoc" (change)="submitDoc()" [disabled]="optOut">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent4" [ngModel]="checkDoc" (change)="submitDoc()" [disabled]="optOut || (!skillOptIn && !chatbotOptIn)">
               <label for="Consent4">Opt-in to Important Documents, Dates, &amp; To Do's</label>
             </div>
 
@@ -191,7 +191,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent5" [ngModel]="checkShl" (change)="submitShl()" [disabled]="optOut">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent5" [ngModel]="checkShl" (change)="submitShl()" [disabled]="optOut || (!skillOptIn && !chatbotOptIn)">
               <label for="Consent5">Opt-in to Schedules &amp; Important Dates</label>
             </div>
 
@@ -206,7 +206,7 @@
             </p>
 
             <div class="ConsentWrap ConsentWrap--alt">
-              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent6" [ngModel]="checkHsn" (change)="submitHsn()" [disabled]="optOut">
+              <input type="checkbox" class="StyleishCheckbox DataOptIn" id="Consent6" [ngModel]="checkHsn" (change)="submitHsn()" [disabled]="optOut || (!skillOptIn && !chatbotOptIn)">
               <label for="Consent6">Opt-in to Housing</label>
             </div>
 
