@@ -45,93 +45,93 @@ export class DeclearationsComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.loader = true;
-    this.route.queryParams.subscribe(params => {
-      this.userToken = params['token'];
-      // this.userToken = 'shibap551u3y4l7';
-      if (this.userToken === undefined) {
-        setTimeout(() => {
-          this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
-            timeOut: 6000,
-            progressBar: true,
-          });
-        });
-        this.router.navigate(['/']);
-      } else {
-        this.userService.getStudentDetailsByToken(this.userToken).subscribe(
-          (res: any) => {
-            if (res.status === 200) {
-              if (res.respData.email === null || res.respData.nuId === null || res.respData.email === '' || res.respData.nuId === '') {
-                setTimeout(() => {
-                  this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
-                    timeOut: 6000,
-                    progressBar: true,
-                  });
-                });
-                // window.open('https://neuidmssotest.neu.edu/idp/profile/Logout', '_blank');
-                this.router.navigate(['/user/signout']);
-              }
-              this.respData = res.respData;
-              this.userDetails = {
-                emailId: res.respData.email,
-                givenName: res.respData.givenName,
-                surname: res.respData.surName,
-                nuId: res.respData.nuId
-              };
-              localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
-              this.showFerpa = false;
-              this.showGdpr = false;
-              this.showPrivacy = true;
-              this.showOptin = false;
-              this.checkFerpa = this.respData.ferpa;
-              this.checkGdpr = this.respData.gdpr;
-              this.checkPrivacy = this.respData.privacy;
-              this.checkAdv = this.respData.adv;
-              this.checkDoc = this.respData.doc;
-              this.checkAnb = this.respData.anb;
-              this.checkShl = this.respData.shl;
-              this.checkGrd = this.respData.grd;
-              this.checkHsn = this.respData.hsn;
-              this.skillOptIn = this.respData.skillOptIn;
-              this.chatbotOptIn = this.respData.chatbotOptIn;
-              this.voiceChatbotOptIn = this.respData.voiceChatbotOptIn;
-              this.optOut = this.respData.optOut;
+    // this.route.queryParams.subscribe(params => {
+    //   this.userToken = params['token'];
+    //   // this.userToken = 'shibap551u3y4l7';
+    //   if (this.userToken === undefined) {
+    //     setTimeout(() => {
+    //       this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
+    //         timeOut: 6000,
+    //         progressBar: true,
+    //       });
+    //     });
+    //     this.router.navigate(['/']);
+    //   } else {
+    //     this.userService.getStudentDetailsByToken(this.userToken).subscribe(
+    //       (res: any) => {
+    //         if (res.status === 200) {
+    //           if (res.respData.email === null || res.respData.nuId === null || res.respData.email === '' || res.respData.nuId === '') {
+    //             setTimeout(() => {
+    //               this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
+    //                 timeOut: 6000,
+    //                 progressBar: true,
+    //               });
+    //             });
+    //             // window.open('https://neuidmssotest.neu.edu/idp/profile/Logout', '_blank');
+    //             this.router.navigate(['/user/signout']);
+    //           }
+    //           this.respData = res.respData;
+    //           this.userDetails = {
+    //             emailId: res.respData.email,
+    //             givenName: res.respData.givenName,
+    //             surname: res.respData.surName,
+    //             nuId: res.respData.nuId
+    //           };
+    //           localStorage.setItem('userInfo', btoa(JSON.stringify(this.userDetails)));
+    //           this.showFerpa = false;
+    //           this.showGdpr = false;
+    //           this.showPrivacy = true;
+    //           this.showOptin = false;
+    //           this.checkFerpa = this.respData.ferpa;
+    //           this.checkGdpr = this.respData.gdpr;
+    //           this.checkPrivacy = this.respData.privacy;
+    //           this.checkAdv = this.respData.adv;
+    //           this.checkDoc = this.respData.doc;
+    //           this.checkAnb = this.respData.anb;
+    //           this.checkShl = this.respData.shl;
+    //           this.checkGrd = this.respData.grd;
+    //           this.checkHsn = this.respData.hsn;
+    //           this.skillOptIn = this.respData.skillOptIn;
+    //           this.chatbotOptIn = this.respData.chatbotOptIn;
+    //           this.voiceChatbotOptIn = this.respData.voiceChatbotOptIn;
+    //           this.optOut = this.respData.optOut;
 
-              this.createForm();
+    //           this.createForm();
 
-              if(this.respData.privacy) {
-                this.showPrivacy = false;
-                this.showOptin = true;
-              }
-              this.loader = false;
-            } else {
-              setTimeout(() => {
-                this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
-                  timeOut: 6000,
-                  progressBar: true,
-                });
-              });
-              this.router.navigate(['/']);
-              this.loader = false;
-            }
+    //           if(this.respData.privacy) {
+    //             this.showPrivacy = false;
+    //             this.showOptin = true;
+    //           }
+    //           this.loader = false;
+    //         } else {
+    //           setTimeout(() => {
+    //             this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
+    //               timeOut: 6000,
+    //               progressBar: true,
+    //             });
+    //           });
+    //           this.router.navigate(['/']);
+    //           this.loader = false;
+    //         }
 
 
-          }, (err: any) => {
-            setTimeout(() => {
-              this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
-                timeOut: 6000,
-                progressBar: true,
-              });
-            });
-            this.loader = false;
-            this.router.navigate(['/']);
-          }
-        );
-      }
-    });
+    //       }, (err: any) => {
+    //         setTimeout(() => {
+    //           this.toastr.error('You need to sign in with valid credential to access the portal', 'Not Authenticated', {
+    //             timeOut: 6000,
+    //             progressBar: true,
+    //           });
+    //         });
+    //         this.loader = false;
+    //         this.router.navigate(['/']);
+    //       }
+    //     );
+    //   }
+    // });
   }
 
   ngOnInit() {
-    // this.demoCredentials();
+    this.demoCredentials();
 
   }
 
