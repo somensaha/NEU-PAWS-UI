@@ -216,9 +216,12 @@
 
         <div class="row">
           <div class="col-md-12">
-               <button class="ObjectCentered top50" type="submit" name="Login"
+               <!-- <button class="ObjectCentered top50" type="submit" name="Login"
                 [ngClass]="{'disabled': (!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !optOut)}"
                 [disabled]="!checkAdv && !checkAnb && !checkGrd && !checkDoc && !checkHsn && !checkShl && !optOut"
+                (click)="submitForm()">Continue</button> -->
+
+                <button class="ObjectCentered top50" type="submit" name="Login"
                 (click)="submitForm()">Continue</button>
         <br />
         <p>
@@ -247,4 +250,9 @@
 
 
 
-
+<ng-template #selectCheckbox class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="hideModal()">&times;</span>
+    <p>Please select atleast one category</p>
+  </div>
+</ng-template>

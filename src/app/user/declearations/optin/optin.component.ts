@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-optin',
@@ -36,20 +37,29 @@ export class OptinComponent implements OnInit {
   @Output() changeoptOut = new EventEmitter<any>();
 
   checkOptOutAll: boolean;
-
+  modalRef: BsModalRef;
+  @ViewChild('selectCheckbox') selectCheckbox: ElementRef;
   
-  constructor() { }
+  constructor(
+    private modalService: BsModalService
+
+  ) { }
 
   ngOnInit() {
 
   }
 
   public submitForm() {
-    if (!this.checkAdv && !this.checkAnb && !this.checkGrd && !this.checkDoc && !this.checkHsn && !this.checkShl && !this.optOut) {
 
+    if (!this.checkAdv && !this.checkAnb && !this.checkGrd && !this.checkDoc && !this.checkHsn && !this.checkShl && !this.optOut) {
+      this.modalService.show(this.selectCheckbox);
     } else {
       this.submitTheForm.emit();
     }
+  }
+
+  hideModal() {
+    this.modalService.hide(1);
   }
 
   submitAdv(){
