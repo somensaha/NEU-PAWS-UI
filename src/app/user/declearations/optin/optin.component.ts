@@ -37,13 +37,9 @@ export class OptinComponent implements OnInit {
   @Output() changeoptOut = new EventEmitter<any>();
 
   checkOptOutAll: boolean;
-  modalRef: BsModalRef;
-  @ViewChild('selectCheckbox') selectCheckbox: ElementRef;
+  catCheckFlag: boolean = false;
   
-  constructor(
-    private modalService: BsModalService
-
-  ) { }
+  constructor() { }
 
   ngOnInit() {
 
@@ -52,52 +48,57 @@ export class OptinComponent implements OnInit {
   public submitForm() {
 
     if (!this.checkAdv && !this.checkAnb && !this.checkGrd && !this.checkDoc && !this.checkHsn && !this.checkShl && !this.optOut) {
-      this.modalService.show(this.selectCheckbox);
+      this.catCheckFlag = true;
     } else {
       this.submitTheForm.emit();
     }
   }
 
-  hideModal() {
-    this.modalService.hide(1);
-  }
 
   submitAdv(){
       this.checkAdv=!this.checkAdv
       this.changeAdv.emit(this.checkAdv);
+      this.catCheckFlag = false;
   }
 
   submitAnb(){
       this.checkAnb=!this.checkAnb;
       this.changeAnb.emit(this.checkAnb);
+      this.catCheckFlag = false;
   }
   submitGrd(){
       this.checkGrd=!this.checkGrd;
       this.changeGrd.emit(this.checkGrd);
+      this.catCheckFlag = false;
   }
   submitDoc(){
       this.checkDoc=!this.checkDoc;
       this.chageDoc.emit(this.checkDoc);
+      this.catCheckFlag = false;
   }
   submitShl(){
       this.checkShl=!this.checkShl;
       this.chandeShl.emit(this.checkShl);
+      this.catCheckFlag = false;
   }
   submitHsn(){
       this.checkHsn=!this.checkHsn;
       this.changeHsn.emit(this.checkHsn);
+      this.catCheckFlag = false;
   }
 
   submitskillOptIn(){
       this.skillOptIn=!this.skillOptIn;
       this.changeskillOptIn.emit(this.skillOptIn);
       this.checkIfBothOptOut();
+      this.catCheckFlag = false;
   }
 
   submitchatbotOptIn(){
     this.chatbotOptIn=!this.chatbotOptIn;
     this.changechatbotOptIn.emit(this.chatbotOptIn);
     this.checkIfBothOptOut();
+    this.catCheckFlag = false;
   }
 
   checkOptOut() {
@@ -123,6 +124,7 @@ export class OptinComponent implements OnInit {
       this.voiceChatbotOptIn = false;
       this.changevoiceChatbotOptIn.emit(this.voiceChatbotOptIn);
     }
+    this.catCheckFlag = false;
   }
 
   checkOptIn() {
@@ -153,6 +155,7 @@ export class OptinComponent implements OnInit {
       this.checkHsn = false;
       this.changeHsn.emit(this.checkHsn);
     }
+    this.catCheckFlag = false;
   }
 
   checkIfBothOptIn() {
@@ -163,6 +166,7 @@ export class OptinComponent implements OnInit {
       this.voiceChatbotOptIn = false;
       this.changevoiceChatbotOptIn.emit(this.voiceChatbotOptIn);
     }
+    this.catCheckFlag = false;
   }
 
   checkIfBothOptOut() {
@@ -180,5 +184,6 @@ export class OptinComponent implements OnInit {
       this.checkHsn = false;
       this.changeHsn.emit(this.checkHsn);
     }
+    this.catCheckFlag = false;
   }
 }
